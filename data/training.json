@@ -1,0 +1,66 @@
+[
+  {
+    "id": "tr-1",
+    "title": "Corporate Masterclass: Databricks & PySpark Lakehouse Engineering",
+    "client": "Fortune 500 Enterprise Engineering Teams",
+    "duration": "4 Weeks (40 Hours)",
+    "audience": "Senior Data Engineers, Cloud Architects, Technical Leads",
+    "modules": [
+      "Delta Lake Internals, ACID Transactions & Time Travel",
+      "PySpark DataFrame Optimization & Adaptive Query Execution (AQE)",
+      "Medallion Architecture (Bronze, Silver, Gold) Hands-on Implementation",
+      "Databricks Workflows, DLT & CI/CD Pipeline Automation"
+    ],
+    "participants": 350,
+    "rating": 4.95,
+    "brochureUrl": "/downloads/databricks-training-brochure.pdf"
+  },
+  {
+    "id": "tr-2",
+    "title": "Executive Workshop: Generative AI & RAG Systems for Enterprise",
+    "client": "Engineering VPs, CTOs, Enterprise Architects",
+    "duration": "2 Days Intensive (16 Hours)",
+    "audience": "Software Directors, Solutions Architects, AI Product Managers",
+    "modules": [
+      "Enterprise RAG Architecture (LangChain, LlamaIndex, Vector Databases)",
+      "LLM Fine-tuning vs Retrieval Augmented Generation",
+      "AKEF Framework Deep Dive & Custom Document Ingestion",
+      "Security, Guardrails, Cost Management & Evaluation Metrics"
+    ],
+    "participants": 280,
+    "rating": 4.98,
+    "brochureUrl": "/downloads/genai-executive-workshop.pdf"
+  },
+  {
+    "id": "tr-3",
+    "title": "Faculty Development Program (FDP): Cloud Data Engineering & AWS",
+    "client": "Higher Education Institutions & Universities (e.g. SJBIT)",
+    "duration": "1 Week (30 Hours)",
+    "audience": "Computer Science Professors, Department Heads, Lab Instructors",
+    "modules": [
+      "AWS Cloud Infrastructure (S3, EC2, IAM, RDS, Redshift)",
+      "Big Data Analytics with Hadoop, Spark & SQL",
+      "Modern Data Stack Curriculum Design for Higher Education",
+      "Hands-on Student Project Construction & Automated Grading"
+    ],
+    "participants": 1200,
+    "rating": 4.92,
+    "brochureUrl": "/downloads/fdp-cloud-data-brochure.pdf"
+  },
+  {
+    "id": "tr-4",
+    "title": "Cybersecurity Awareness & Security Operations Certification",
+    "client": "Corporate Organizations & Government Technical Units",
+    "duration": "3 Days (18 Hours)",
+    "audience": "IT Administrators, Security Analysts, System Engineers",
+    "modules": [
+      "Threat Vectors, Phishing Defense & Incident Response Protocols",
+      "Cloud IAM Security, Encryption at Rest & in Transit",
+      "Vulnerability Assessment & Network Penetration Basics",
+      "Compliance Frameworks (ISO 27001, SOC2, CIS Benchmarks)"
+    ],
+    "participants": 1500,
+    "rating": 4.89,
+    "brochureUrl": "/downloads/cybersecurity-awareness.pdf"
+  }
+]

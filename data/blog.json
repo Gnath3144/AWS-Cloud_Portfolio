@@ -1,0 +1,50 @@
+[
+  {
+    "id": "blog-1",
+    "slug": "rag-architecture-deep-dive",
+    "title": "Demystifying Enterprise RAG: Hybrid Vector Search & Knowledge Graphs",
+    "category": "Articles",
+    "date": "2026-07-15",
+    "readTime": "8 min read",
+    "author": "Gopinath A",
+    "summary": "A deep dive into why pure vector similarity falls short for technical domain literature and how hybrid BM25 + dense embedding indexing resolves document retrieval inaccuracy.",
+    "content": "Retrieval-Augmented Generation (RAG) has emerged as the standard pattern for exposing domain-specific enterprise knowledge to Large Language Models. However, enterprise documents contain dense technical tables, code snippets, and acronyms that often fail under naive cosine distance similarity...",
+    "tags": ["Generative AI", "RAG", "Vector DB", "AKEF"]
+  },
+  {
+    "id": "blog-2",
+    "slug": "pyspark-delta-lake-optimization",
+    "title": "PySpark Delta Lake Performance Tuning: Z-Ordering & AQE in Practice",
+    "category": "Research",
+    "date": "2026-06-20",
+    "readTime": "12 min read",
+    "author": "Gopinath A",
+    "summary": "Empirical study benchmarking Adaptive Query Execution (AQE) and Delta Lake file compaction across multi-terabyte financial datasets.",
+    "content": "When dealing with multi-terabyte data lakes on Databricks or AWS S3, query performance degrades significantly due to small file problems and unpartitioned scans. In this article, we evaluate how Delta Lake OPTIMIZE ZORDER BY dramatically prunes file reads...",
+    "tags": ["Databricks", "PySpark", "Delta Lake", "Data Engineering"]
+  },
+  {
+    "id": "blog-3",
+    "slug": "aws-cloud-security-guardrails",
+    "title": "Implementing Zero-Trust AWS Security Guardrails with Control Tower",
+    "category": "Technical Papers",
+    "date": "2026-05-10",
+    "readTime": "10 min read",
+    "author": "Gopinath A",
+    "summary": "Step-by-step architectural blueprint for setting up AWS Control Tower SCPs, GuardDuty anomaly detection, and event-driven Lambda auto-remediations.",
+    "content": "Multi-account AWS environments require automated, continuous compliance governance. By combining AWS Config rules with EventBridge and Lambda, security teams can automatically revoke public S3 bucket policies within 3 seconds of drift...",
+    "tags": ["AWS", "Cybersecurity", "Terraform", "Cloud Architecture"]
+  },
+  {
+    "id": "blog-4",
+    "slug": "modern-data-engineering-curriculum",
+    "title": "Designing Industry-Aligned Data Engineering Curricula for Higher Education",
+    "category": "Training Material",
+    "date": "2026-04-02",
+    "readTime": "6 min read",
+    "author": "Gopinath A",
+    "summary": "Key takeaways from training 5,000+ engineers: Bridging the gap between academic computer science theory and production cloud data stacks.",
+    "content": "Traditional computer science programs excel at teaching relational algebra and operating systems, but often leave graduates unprepared for cloud-native distributed data pipelines. Here is our recommended 12-week hands-on learning roadmap...",
+    "tags": ["Education", "Bootcamps", "FDP", "Data Engineering"]
+  }
+]

@@ -1,0 +1,152 @@
+[
+  {
+    "id": "srv-1",
+    "title": "Enterprise AI Consulting",
+    "icon": "brain",
+    "overview": "Strategic guidance for CTOs and Architects building autonomous GenAI agents, custom RAG pipelines, and LLM fine-tuning architectures tailored for private corporate data.",
+    "audience": "Enterprise CTOs, VPs of Engineering, Product Leaders",
+    "duration": "Engagement based (2 Weeks to 6 Months)",
+    "outcomes": [
+      "Production-ready RAG architecture design document",
+      "Sub-second vector retrieval performance tuning",
+      "Enterprise security, RBAC & LLM guardrails implementation"
+    ],
+    "ctaText": "Schedule AI Advisory Session",
+    "ctaTarget": "#contact"
+  },
+  {
+    "id": "srv-2",
+    "title": "Corporate Training",
+    "icon": "users",
+    "overview": "High-impact bootcamps for software engineering teams covering Databricks, PySpark, AWS Cloud Data Pipelines, and Modern Data Stack tools.",
+    "audience": "Data Engineering Teams, Software Engineers, Tech Leads",
+    "duration": "1 Week Intensive to 4 Weeks Masterclass",
+    "outcomes": [
+      "Hands-on mastery of PySpark, Delta Lake, & Airflow",
+      "Production ETL codebase built during live workshop",
+      "Certifications preparation & enterprise best practices"
+    ],
+    "ctaText": "Request Corporate Brochure",
+    "ctaTarget": "#contact"
+  },
+  {
+    "id": "srv-3",
+    "title": "Faculty Development Programs (FDP)",
+    "icon": "academic",
+    "overview": "Specialized training for university professors and computer science educators to modernize curriculum with cloud, data engineering, and GenAI labs.",
+    "audience": "University Professors, Lecturers, Computer Science Faculty",
+    "duration": "3 to 5 Days Intensive Workshop",
+    "outcomes": [
+      "Industry-aligned cloud data engineering curriculum",
+      "Automated lab exercises & student assessment templates",
+      "Academic-industry partnership framework"
+    ],
+    "ctaText": "Book FDP Program",
+    "ctaTarget": "#contact"
+  },
+  {
+    "id": "srv-4",
+    "title": "Databricks Implementation",
+    "icon": "layers",
+    "overview": "End-to-end deployment of Lakehouse architecture, Medallion tables (Bronze/Silver/Gold), Unity Catalog governance, and PySpark query optimization.",
+    "audience": "Data Platform Teams, Analytics Leaders",
+    "duration": "4 Weeks to 12 Weeks Implementation",
+    "outcomes": [
+      "Production Databricks Medallion Lakehouse pipeline",
+      "Z-Ordering & AQE performance tuning reducing query costs by 40%+",
+      "Automated DLT & Delta Lake schema evolution"
+    ],
+    "ctaText": "Discuss Databricks Rollout",
+    "ctaTarget": "#contact"
+  },
+  {
+    "id": "srv-5",
+    "title": "Cloud Migration",
+    "icon": "cloud-upload",
+    "overview": "Seamless migration of legacy relational databases (Oracle, SQL Server, Teradata) to cloud platforms (AWS Redshift, Snowflake, Databricks).",
+    "audience": "Infrastructure VPs, IT Directors, Enterprise Architects",
+    "duration": "Phase-based Strategy (1 Month to 6 Months)",
+    "outcomes": [
+      "Zero-downtime database cutover execution plan",
+      "Automated Schema Conversion & Data Quality validation",
+      "Significant cloud infrastructure cost reduction"
+    ],
+    "ctaText": "Plan Cloud Migration",
+    "ctaTarget": "#contact"
+  },
+  {
+    "id": "srv-6",
+    "title": "Data Engineering",
+    "icon": "database",
+    "overview": "Custom design and build of fault-tolerant batch and streaming data pipelines using PySpark, Kafka, Airflow, and FastAPI microservices.",
+    "audience": "FinTech, HealthTech, SaaS Data Engineering Teams",
+    "duration": "Project-based Custom SLA",
+    "outcomes": [
+      "Sub-minute streaming ingestion pipelines",
+      "Automated data quality assertions with Great Expectations",
+      "99.9% uptime pipeline SLAs with alert monitoring"
+    ],
+    "ctaText": "Build Data Pipeline",
+    "ctaTarget": "#contact"
+  },
+  {
+    "id": "srv-7",
+    "title": "Power BI Consulting",
+    "icon": "bar-chart",
+    "overview": "Advanced BI data modeling, complex DAX formula writing, Row-Level Security (RLS) setup, and executive dashboard design.",
+    "audience": "Business Analysts, Executive Stakeholders, Finance Directors",
+    "duration": "1 Week Audit to 4 Weeks Dashboard Delivery",
+    "outcomes": [
+      "Instantaneous multi-million row reporting responsiveness",
+      "Executive financial & operational performance cockpits",
+      "Automated scheduled data refreshes and mobile view layout"
+    ],
+    "ctaText": "Request Power BI Audit",
+    "ctaTarget": "#contact"
+  },
+  {
+    "id": "srv-8",
+    "title": "Generative AI Workshops",
+    "icon": "sparkles",
+    "overview": "Interactive technical workshops teaching developers how to build RAG apps, vector search indexes, prompt engineering, and LLM evaluation benchmarks.",
+    "audience": "Software Developers, AI Enthusiasts, Tech Organizations",
+    "duration": "1-Day or 2-Day Bootcamps",
+    "outcomes": [
+      "Working RAG prototype integrated with vector database",
+      "Hands-on LangChain & LlamaIndex coding sessions",
+      "Prompt safety, guardrails & evaluation scorecard"
+    ],
+    "ctaText": "Enroll Team in GenAI Workshop",
+    "ctaTarget": "#contact"
+  },
+  {
+    "id": "srv-9",
+    "title": "Cybersecurity Awareness",
+    "icon": "shield-check",
+    "overview": "Corporate threat awareness, IAM policy audits, cloud security compliance (CIS, SOC2), and security operations team training.",
+    "audience": "Corporate Employees, SysAdmins, Security Teams",
+    "duration": "1 Day to 3 Days Program",
+    "outcomes": [
+      "Reduced vulnerability vectors across cloud IAM roles",
+      "Incident response protocol playbook for engineering teams",
+      "Security compliance certification readiness report"
+    ],
+    "ctaText": "Schedule Security Audit",
+    "ctaTarget": "#contact"
+  },
+  {
+    "id": "srv-10",
+    "title": "Technical Content Development",
+    "icon": "file-text",
+    "overview": "Authoring enterprise documentation, cloud architectural whitepapers, developer tutorials, and comprehensive technical courseware.",
+    "audience": "EdTech Platforms, Tech Publishers, SaaS Vendors",
+    "duration": "Custom Deliverable Scope",
+    "outcomes": [
+      "Publish-ready technical documentation and diagrams",
+      "Interactive code labs and step-by-step developer guides",
+      "High-converting technical whitepapers and articles"
+    ],
+    "ctaText": "Order Technical Content",
+    "ctaTarget": "#contact"
+  }
+]

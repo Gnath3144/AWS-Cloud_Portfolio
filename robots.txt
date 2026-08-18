@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api/admin
+Disallow: /database/
+
+Sitemap: http://gopinath-cloud-portfolio-724394717120.s3-website.ap-south-1.amazonaws.com/sitemap.xml

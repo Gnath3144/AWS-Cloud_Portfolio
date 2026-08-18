@@ -1,0 +1,46 @@
+[
+  {
+    "id": "test-1",
+    "author": "Dr. Rajesh Kumar",
+    "designation": "Head of Department (CSE), SJBIT",
+    "organization": "Visvesvaraya Technological University Network",
+    "category": "Training Feedback",
+    "source": "Faculty Development Program",
+    "avatar": "assets/images/testimonials/avatar-rajesh.png",
+    "text": "Gopinath's Faculty Development Program on Cloud Data Engineering was transformative for our department. His ability to distill complex AWS and PySpark concepts into actionable lab exercises is unmatched.",
+    "rating": 5
+  },
+  {
+    "id": "test-2",
+    "author": "Ananya Sharma",
+    "designation": "Lead Data Architect",
+    "organization": "Fortune 500 Enterprise Tech Partner",
+    "category": "Client Feedback",
+    "source": "Databricks Migration Engagement",
+    "avatar": "assets/images/testimonials/avatar-ananya.png",
+    "text": "Gopinath architected our Databricks Medallion Lakehouse pipeline, cutting our execution window from 14 hours to 45 minutes. His expertise in Delta Lake optimization saved us over 40% in monthly cloud compute.",
+    "rating": 5
+  },
+  {
+    "id": "test-3",
+    "author": "Siddharth Mehta",
+    "designation": "Senior Software Engineer",
+    "organization": "Global FinTech Solutions",
+    "category": "LinkedIn Recommendations",
+    "source": "LinkedIn Recommendation",
+    "avatar": "assets/images/testimonials/avatar-siddharth.png",
+    "text": "Attending Gopinath's Generative AI & RAG Masterclass was a turning point in my career. He explains vector embeddings, FAISS, and LangChain with total clarity and real-world enterprise depth.",
+    "rating": 5
+  },
+  {
+    "id": "test-4",
+    "author": "Priya Nair",
+    "designation": "VP of Technology",
+    "organization": "CloudScale Innovations",
+    "category": "Google Reviews",
+    "source": "Google Review",
+    "avatar": "assets/images/testimonials/avatar-priya.png",
+    "text": "Gopinath's cybersecurity audit and IAM guardrails blueprint helped us pass our SOC2 compliance check with flying colors. A true authority in cloud architecture and data systems.",
+    "rating": 5
+  }
+]

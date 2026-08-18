@@ -1,0 +1,65 @@
+{
+  "certifications": [
+    {
+      "id": "aws-sa-pro",
+      "title": "AWS Certified Solutions Architect – Professional",
+      "issuer": "Amazon Web Services",
+      "issueDate": "2023",
+      "badgeSvg": "<svg viewBox='0 0 100 100' class='badge-icon'><path fill='#FF9900' d='M50 5L90 25V75L50 95L10 75V25L50 5Z'/><text x='50' y='52' fill='#1A2433' font-size='12' font-weight='bold' text-anchor='middle'>AWS</text><text x='50' y='65' fill='#1A2433' font-size='8' text-anchor='middle'>ARCHITECT</text></svg>",
+      "verificationUrl": "https://aws.amazon.com/verification",
+      "category": "Cloud Architecture"
+    },
+    {
+      "id": "databricks-de-pro",
+      "title": "Databricks Certified Data Engineer Professional",
+      "issuer": "Databricks",
+      "issueDate": "2024",
+      "badgeSvg": "<svg viewBox='0 0 100 100' class='badge-icon'><path fill='#FF3621' d='M50 5L90 25V75L50 95L10 75V25L50 5Z'/><text x='50' y='52' fill='#FFFFFF' font-size='10' font-weight='bold' text-anchor='middle'>DATABRICKS</text><text x='50' y='65' fill='#FFFFFF' font-size='8' text-anchor='middle'>DATA ENGINEER</text></svg>",
+      "verificationUrl": "https://credentials.databricks.com",
+      "category": "Data Engineering"
+    },
+    {
+      "id": "azure-data-eng",
+      "title": "Microsoft Certified: Azure Data Engineer Associate (DP-203)",
+      "issuer": "Microsoft",
+      "issueDate": "2023",
+      "badgeSvg": "<svg viewBox='0 0 100 100' class='badge-icon'><path fill='#0089D6' d='M50 5L90 25V75L50 95L10 75V25L50 5Z'/><text x='50' y='52' fill='#FFFFFF' font-size='11' font-weight='bold' text-anchor='middle'>AZURE</text><text x='50' y='65' fill='#FFFFFF' font-size='8' text-anchor='middle'>DATA ENG</text></svg>",
+      "verificationUrl": "https://learn.microsoft.com/credentials",
+      "category": "Cloud & Data"
+    },
+    {
+      "id": "gcp-data-eng",
+      "title": "Google Cloud Certified Professional Data Engineer",
+      "issuer": "Google Cloud",
+      "issueDate": "2023",
+      "badgeSvg": "<svg viewBox='0 0 100 100' class='badge-icon'><path fill='#4285F4' d='M50 5L90 25V75L50 95L10 75V25L50 5Z'/><text x='50' y='52' fill='#FFFFFF' font-size='11' font-weight='bold' text-anchor='middle'>GCP</text><text x='50' y='65' fill='#FFFFFF' font-size='8' text-anchor='middle'>DATA ENG</text></svg>",
+      "verificationUrl": "https://cloud.google.com/certification",
+      "category": "Cloud Architecture"
+    },
+    {
+      "id": "comptia-sec",
+      "title": "CompTIA Security+ Certified",
+      "issuer": "CompTIA",
+      "issueDate": "2022",
+      "badgeSvg": "<svg viewBox='0 0 100 100' class='badge-icon'><path fill='#C8102E' d='M50 5L90 25V75L50 95L10 75V25L50 5Z'/><text x='50' y='52' fill='#FFFFFF' font-size='10' font-weight='bold' text-anchor='middle'>CompTIA</text><text x='50' y='65' fill='#FFFFFF' font-size='8' text-anchor='middle'>SECURITY+</text></svg>",
+      "verificationUrl": "https://www.comptia.org",
+      "category": "Cybersecurity"
+    }
+  ],
+  "awards": [
+    {
+      "id": "award-1",
+      "title": "Excellence in Enterprise Technical Education Award",
+      "organization": "National Cloud & AI Educator Summit",
+      "year": "2025",
+      "description": "Recognized for outstanding contribution in training 5,000+ engineers in modern data engineering & cloud architecture."
+    },
+    {
+      "id": "award-2",
+      "title": "Top Open Source AI Framework Innovator",
+      "organization": "Developer Tech Leadership Forum",
+      "year": "2024",
+      "description": "Awarded for the creation and architectural design of AKEF (AI Knowledge Engineering Framework)."
+    }
+  ]
+}

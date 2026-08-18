@@ -1,0 +1,44 @@
+[
+  {
+    "id": "exp-1",
+    "role": "Principal AI Architect & Data Engineering Consultant",
+    "organization": "Enterprise AI & Cloud Advisory / AKEF Labs",
+    "period": "2021 - Present",
+    "location": "Bengaluru / Global Remote",
+    "summary": "Leading enterprise cloud data migrations, Databricks Medallion Lakehouse deployments, RAG pipeline architectures, and executive GenAI workshops.",
+    "highlights": [
+      "Architected multi-cloud data platforms handling 100TB+ streaming workloads with Delta Lake & PySpark.",
+      "Designed and deployed AKEF (AI Knowledge Engineering Framework) for autonomous RAG document ingestion and vector search.",
+      "Delivered high-value consulting engagements for Fortune 500 tech clients and elite academic institutions."
+    ],
+    "skills": ["AWS", "Databricks", "Generative AI", "PySpark", "Snowflake", "FastAPI", "Docker"]
+  },
+  {
+    "id": "exp-2",
+    "role": "Senior Technical Educator & Bootcamp Lead",
+    "organization": "Corporate Training & University Programs (SJBIT / Corporate)",
+    "period": "2018 - 2021",
+    "location": "Bengaluru, India",
+    "summary": "Directed intensive 12-week data engineering bootcamps, faculty development programs, and hands-on cloud labs.",
+    "highlights": [
+      "Mentored 5,000+ software engineers, data analysts, and computer science faculty in AWS, SQL, and PySpark.",
+      "Created industry-grade curriculum for Data Engineering, Cloud DevOps, and Data Structures & Algorithms.",
+      "Achieved 98%+ positive feedback across 50+ corporate training cohorts."
+    ],
+    "skills": ["AWS Bootcamps", "Python", "Data Structures", "SQL", "Cloud Architecture", "Power BI"]
+  },
+  {
+    "id": "exp-3",
+    "role": "Cloud Solutions & Data Pipeline Engineer",
+    "organization": "Enterprise Software & Cloud Systems",
+    "period": "2015 - 2018",
+    "location": "Bengaluru, India",
+    "summary": "Implemented automated ETL/ELT data pipelines, serverless REST microservices, and database optimizations.",
+    "highlights": [
+      "Optimized legacy SQL workloads reducing query execution time by 65%.",
+      "Built automated data quality validation frameworks using Great Expectations and Python.",
+      "Integrated AWS S3, Redshift, Glue, and Lambda serverless data ingestion pipelines."
+    ],
+    "skills": ["AWS Glue", "Redshift", "PostgreSQL", "Python", "ETL Pipelines", "Docker"]
+  }
+]

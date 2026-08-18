@@ -1,0 +1,22 @@
+[
+  {
+    "id": "pub-1",
+    "title": "Architecting High-Throughput RAG Ingestion Engines with Delta Lake & Vector Stores",
+    "venue": "International Journal of Cloud Computing & Big Data Engineering",
+    "year": "2025",
+    "type": "Technical Research Paper",
+    "abstract": "This paper presents a hybrid retrieval framework combining sparse lexical indexing with dense vector embeddings to minimize retrieval latency and document hallucination in multi-tenant enterprise knowledge systems.",
+    "pdfUrl": "/downloads/publications/rag-delta-lake-paper.pdf",
+    "link": "https://doi.org/10.1007/s13369-025-09871"
+  },
+  {
+    "id": "pub-2",
+    "title": "Cost Optimization Strategies for PySpark Workloads in Databricks Cloud Environments",
+    "venue": "Enterprise Data Architecture Summit Proceedings",
+    "year": "2024",
+    "type": "Conference Paper",
+    "abstract": "Detailed empirical benchmarks evaluating Adaptive Query Execution (AQE), dynamic partition pruning, and Delta Lake Z-Ordering for large-scale financial transaction data processing.",
+    "pdfUrl": "/downloads/publications/pyspark-cost-optimization.pdf",
+    "link": "https://doi.org/10.1109/EDAS.2024.10492"
+  }
+]

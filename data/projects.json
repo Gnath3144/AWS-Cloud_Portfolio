@@ -1,0 +1,116 @@
+[
+  {
+    "id": "akef-framework",
+    "title": "AKEF — AI Knowledge Engineering Framework",
+    "tagline": "Autonomous RAG & Enterprise Knowledge Graph Ingestion Engine",
+    "category": "Generative AI / Enterprise Architecture",
+    "featured": true,
+    "executiveSummary": "AKEF is an open-source, enterprise-grade AI Knowledge Engineering Framework designed to ingest, chunk, embed, and query multi-format unstructured enterprise documents (PDFs, DOCX, Code, Transcripts) with sub-second retrieval accuracy using hybrid semantic search and knowledge graph relationships.",
+    "businessProblem": "Enterprise organizations struggled with fragmented internal knowledge, hallucinating LLM responses on un-indexed documents, and high latency when searching across multi-gigabyte corporate repositories.",
+    "architectureDiagram": "Client UI / API -> FastAPI Gateway -> Chunking & Embedding Worker -> FAISS / Qdrant Vector Store + Knowledge Graph -> RAG Agent (Gemini / Llama3) -> Verified Contextual Response",
+    "technologyStack": ["Python 3.11", "FastAPI", "LangChain / LlamaIndex", "FAISS / Qdrant", "Google Gemini API", "Docker", "PyTorch"],
+    "challenges": [
+      "Handling complex tables, mathematical formulas, and scanned PDF documents without loss of semantic context.",
+      "Preventing vector database redundancy and optimizing multi-query retrieval overhead."
+    ],
+    "solution": "Built a custom recursive layout-aware text splitter coupled with hybrid sparse-dense retrieval (BM25 + Dense Embeddings) and automatic metadata tagging.",
+    "lessonsLearned": "Hybrid search out-performs pure vector similarity by 34% when querying specialized technical terminology and domain-specific acronyms.",
+    "businessImpact": "Reduced internal knowledge retrieval time by 82% across corporate documentation teams and eliminated document hallucination errors.",
+    "repository": "https://github.com/Gnath3144/AKEF-AI-Knowledge-Engine",
+    "screenshots": [
+      "assets/images/akef-architecture.svg",
+      "assets/images/akef-dashboard.png"
+    ],
+    "downloads": [
+      { "name": "AKEF Architecture Whitepaper (PDF)", "url": "/downloads/akef-whitepaper.pdf" }
+    ],
+    "futureImprovements": [
+      "Integration with GraphRAG (Neo4j knowledge graph integration).",
+      "Streaming local LLM inference via vLLM / Ollama for air-gapped enterprise environments."
+    ]
+  },
+  {
+    "id": "databricks-medallion",
+    "title": "Enterprise Databricks Medallion Lakehouse Engine",
+    "tagline": "End-to-End PySpark Delta Lake Migration & Analytics Infrastructure",
+    "category": "Data Engineering",
+    "featured": true,
+    "executiveSummary": "A production-tested Databricks Medallion Architecture (Bronze -> Silver -> Gold) designed for real-time telemetry streaming and daily batch aggregations using PySpark, Delta Lake, and Automated Data Quality rules.",
+    "businessProblem": "Legacy data warehouse suffered from 14-hour batch processing windows, high cloud compute billing, and schema drift issues across incoming IoT streams.",
+    "architectureDiagram": "Kafka / S3 Stream -> Bronze Delta (Raw Ingestion) -> Silver Delta (Cleaned & Schema Validated) -> Gold Delta (Aggregated Business Data Marts) -> Power BI / Databricks SQL",
+    "technologyStack": ["Databricks", "PySpark", "Delta Lake", "AWS S3", "Apache Airflow", "Great Expectations", "Power BI"],
+    "challenges": [
+      "Enforcing strict schema validation without dropping unexpected incoming data records.",
+      "Optimizing Delta Lake file size compaction (OPTIMIZE & Z-ORDER) to accelerate BI query execution."
+    ],
+    "solution": "Implemented Auto-Loader with schema evolution for Bronze tables, automated PySpark transformation pipelines for Silver validation, and pre-computed Gold aggregation views.",
+    "lessonsLearned": "Proper Delta Lake Z-Ordering on high-cardinality join keys decreased BI query duration from minutes to under 3 seconds.",
+    "businessImpact": "Cut data pipeline execution window from 14 hours to 45 minutes; reduced AWS infrastructure spending by 42%.",
+    "repository": "https://github.com/Gnath3144/Databricks-Medallion-Lakehouse",
+    "screenshots": [
+      "assets/images/lakehouse-pipeline.png"
+    ],
+    "downloads": [
+      { "name": "Databricks Lakehouse Implementation Specs (PDF)", "url": "/downloads/databricks-specs.pdf" }
+    ],
+    "futureImprovements": [
+      "Migrating Apache Airflow DAGs to Databricks Workflows with Delta Live Tables (DLT)."
+    ]
+  },
+  {
+    "id": "aws-cloud-security-compliance",
+    "title": "AWS Cloud Security & Multi-Account Governance Platform",
+    "tagline": "Automated Security Compliance, IAM Guardrails & CloudTrail Audit System",
+    "category": "Cloud & Cybersecurity",
+    "featured": true,
+    "executiveSummary": "Comprehensive AWS cloud architecture blueprint enforcing CIS AWS Benchmarks, GuardDuty anomaly detection, KMS encryption, and automated compliance remediation via AWS Lambda & CloudWatch.",
+    "businessProblem": "Unmonitored AWS resource provisionings across multiple developer accounts led to security vulnerability exposures and compliance audit failures.",
+    "architectureDiagram": "AWS Control Tower -> AWS Config Rules -> CloudTrail Audit Stream -> GuardDuty EventBridge -> Lambda Auto-Remediation -> Security Hub Alerting",
+    "technologyStack": ["AWS IAM", "AWS Control Tower", "AWS Config", "GuardDuty", "KMS", "Lambda", "Terraform", "Python"],
+    "challenges": [
+      "Automating non-compliant S3 bucket policy remediations without breaking active application integrations.",
+      "Structuring least-privilege IAM roles for dynamic CI/CD deployment pipelines."
+    ],
+    "solution": "Built automated Terraform modules deploying centralized AWS Control Tower guardrails with event-driven Lambda auto-remediation scripts.",
+    "lessonsLearned": "Event-driven security remediation prevents security exposure windows by acting within seconds of resource configuration drift.",
+    "businessImpact": "Achieved 100% compliance score across SOC2 & CIS AWS Security benchmarks for client cloud infrastructure.",
+    "repository": "https://github.com/Gnath3144/AWS-Cloud-Security-Compliance",
+    "screenshots": [
+      "assets/images/aws-security-dashboard.png"
+    ],
+    "downloads": [
+      { "name": "AWS Security Governance Playbook (PDF)", "url": "/downloads/aws-security-playbook.pdf" }
+    ],
+    "futureImprovements": [
+      "Integration with HashiCorp Vault for multi-cloud secret dynamic rotation."
+    ]
+  },
+  {
+    "id": "powerbi-enterprise-analytics",
+    "title": "Executive Enterprise Power BI Analytics Suite",
+    "tagline": "Financial, Supply Chain & Operational Intelligence Dashboards",
+    "category": "Business Intelligence & Analytics",
+    "featured": false,
+    "executiveSummary": "Interactive, highly optimized Power BI dashboard suite connecting to Snowflake and Azure SQL, featuring advanced DAX formulas, row-level security (RLS), and automated scheduled incremental refreshes.",
+    "businessProblem": "Executive stakeholders lacked real-time visibility into cross-departmental supply chain bottlenecks and revenue variance.",
+    "architectureDiagram": "Snowflake Data Warehouse -> DirectQuery / Import Data Model -> DAX Analytics Engine -> Dynamic Power BI Desktop -> RLS Security Gate -> Power BI Service Portal",
+    "technologyStack": ["Power BI", "DAX", "Snowflake", "SQL", "Power Query M", "Azure Data Factory"],
+    "challenges": [
+      "Maintaining instantaneous drill-down rendering speed across a 50-million row fact table dataset.",
+      "Implementing strict role-based data visibility for regional vice presidents."
+    ],
+    "solution": "Implemented Aggregation Tables in Power BI paired with dynamic DAX measures and dimensional star-schema data modeling.",
+    "lessonsLearned": "Pushing heavy transformations back to Snowflake data warehouse layer dramatically improves Power BI report responsiveness.",
+    "businessImpact": "Delivered executive decision-making clarity, identifying $1.2M in supply chain cost optimization opportunities.",
+    "repository": "https://github.com/Gnath3144/PowerBI-Enterprise-Analytics",
+    "screenshots": [
+      "assets/images/powerbi-dashboard.png"
+    ],
+    "downloads": [
+      { "name": "Power BI Architecture Deck (PDF)", "url": "/downloads/powerbi-deck.pdf" }
+    ],
+    "futureImprovements": [
+      "Embedding real-time Power BI reports into enterprise React web portals."
+    ]
+  }
+]
