@@ -442,19 +442,111 @@ AI & Vector  : LangChain, LangGraph, Vector DBs (FAISS/Chroma/Pinecone), AKEF Co
 
   window.jumpToSection = function(hash) {
     if (cmdModal) cmdModal.style.display = 'none';
+    window.closeMobileNav();
     const el = document.querySelector(hash);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
+  /* --------------------------------------------------------
+     7.1. MOBILE NAVIGATION DRAWER CONTROLLER
+  -------------------------------------------------------- */
+  const mobileToggleBtn = document.getElementById('mobile-nav-toggle');
+  const mobileDrawer = document.getElementById('mobile-nav-drawer');
+  const mobileBackdrop = document.getElementById('mobile-nav-backdrop');
+  const hamburgerIcon = document.getElementById('hamburger-icon');
+  const hamburgerCloseIcon = document.getElementById('hamburger-close-icon');
+
+  window.toggleMobileNav = function(force) {
+    if (!mobileDrawer) return;
+    const isCurrentlyOpen = mobileDrawer.classList.contains('active');
+    const shouldOpen = typeof force === 'boolean' ? force : !isCurrentlyOpen;
+    
+    if (shouldOpen) {
+      window.openMobileNav();
+    } else {
+      window.closeMobileNav();
+    }
+  };
+
+  window.openMobileNav = function() {
+    if (!mobileDrawer) return;
+    mobileDrawer.classList.add('active');
+    if (mobileBackdrop) mobileBackdrop.classList.add('active');
+    if (mobileToggleBtn) {
+      mobileToggleBtn.setAttribute('aria-expanded', 'true');
+    }
+    if (hamburgerIcon) hamburgerIcon.style.display = 'none';
+    if (hamburgerCloseIcon) hamburgerCloseIcon.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  };
+
+  window.closeMobileNav = function() {
+    if (!mobileDrawer) return;
+    mobileDrawer.classList.remove('active');
+    if (mobileBackdrop) mobileBackdrop.classList.remove('active');
+    if (mobileToggleBtn) {
+      mobileToggleBtn.setAttribute('aria-expanded', 'false');
+    }
+    if (hamburgerIcon) hamburgerIcon.style.display = 'block';
+    if (hamburgerCloseIcon) hamburgerCloseIcon.style.display = 'none';
+    document.body.style.overflow = '';
+  };
+
+  /* --------------------------------------------------------
+     7.2. ACTIVE SCROLLSPY NAVIGATION OBSERVER
+  -------------------------------------------------------- */
+  const sectionIds = [
+    'hero', 'akef', 'opensource', 'what-i-build', 'stack',
+    'clients', 'architecture', 'journey', 'services', 'blog',
+    'testimonials', 'certifications', 'downloads', 'contact'
+  ];
+
+  const observerOptions = {
+    root: null,
+    rootMargin: '-20% 0px -70% 0px',
+    threshold: 0
+  };
+
+  const scrollspyObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        if (!id) return;
+        
+        // Update Desktop Navigation Pills
+        document.querySelectorAll('.header-nav .nav-link').forEach((link) => {
+          const href = link.getAttribute('href');
+          link.classList.toggle('active', href === `#${id}`);
+        });
+
+        // Update Mobile Drawer Navigation Items
+        document.querySelectorAll('.mobile-drawer-nav .mobile-nav-link').forEach((link) => {
+          const href = link.getAttribute('href');
+          link.classList.toggle('active', href === `#${id}`);
+        });
+      }
+    });
+  }, observerOptions);
+
+  sectionIds.forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) scrollspyObserver.observe(el);
+  });
+
   document.addEventListener('keydown', (e) => {
     if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
       e.preventDefault();
       toggleCommandPalette();
     }
-    if (e.key === 'Escape' && cmdModal && cmdModal.style.display === 'flex') {
-      cmdModal.style.display = 'none';
+    if (e.key === 'Escape') {
+      if (cmdModal && cmdModal.style.display === 'flex') {
+        cmdModal.style.display = 'none';
+      }
+      if (mobileDrawer && mobileDrawer.classList.contains('active')) {
+        window.closeMobileNav();
+      }
     }
   });
 

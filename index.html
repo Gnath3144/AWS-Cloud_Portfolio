@@ -96,21 +96,24 @@
                 </div>
             </a>
 
-            <!-- Desktop Nav & Command Palette Trigger -->
-            <nav class="header-nav" aria-label="Primary Navigation">
+            <!-- Desktop Nav -->
+            <nav class="header-nav desktop-only-nav" aria-label="Primary Navigation">
                 <a href="#architecture" class="nav-link">Architecture</a>
                 <a href="#akef" class="nav-link">AKEF</a>
                 <a href="#opensource" class="nav-link">Open Source</a>
                 <a href="#what-i-build" class="nav-link">What I Build</a>
                 <a href="#stack" class="nav-link">Stack</a>
                 <a href="#clients" class="nav-link">Clients</a>
-                <a href="#journey" class="nav-link">Journey</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#blog" class="nav-link">Blog</a>
+                <a href="#downloads" class="nav-link">Downloads</a>
                 <a href="#contact" class="nav-link" style="color: var(--aws-orange); font-weight: 800;">Contact</a>
+            </nav>
 
-                <div style="width: 1px; height: 20px; background: var(--border-subtle); margin: 0 var(--space-2); flex-shrink: 0;"></div>
-
+            <!-- Header Action Buttons -->
+            <div class="header-actions">
                 <!-- Command Palette Shortcut Button -->
-                <button onclick="toggleCommandPalette()" class="cmd-k-badge" title="Press Cmd+K or Ctrl+K to search">
+                <button onclick="toggleCommandPalette()" class="cmd-k-badge" title="Press Cmd+K or Ctrl+K to search" aria-label="Open Command Palette">
                     <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
                     <span>Cmd+K</span>
                 </button>
@@ -124,13 +127,142 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
                     </svg>
                 </button>
-            </nav>
+
+                <!-- Mobile Navigation Hamburger Toggle -->
+                <button id="mobile-nav-toggle" class="mobile-nav-toggle-btn" aria-label="Toggle Navigation Drawer" aria-expanded="false" aria-controls="mobile-nav-drawer" onclick="toggleMobileNav()">
+                    <svg id="hamburger-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                    <svg id="hamburger-close-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" style="display: none;">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
         </div>
     </header>
 
+    <!-- Mobile Navigation Drawer & Backdrop -->
+    <div id="mobile-nav-backdrop" class="mobile-nav-backdrop" onclick="closeMobileNav()" aria-hidden="true"></div>
+    <aside id="mobile-nav-drawer" class="mobile-nav-drawer" aria-label="Mobile Navigation Drawer" aria-hidden="true">
+        <div class="mobile-drawer-header">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <div style="width: 34px; height: 34px; border-radius: 8px; background: rgba(24, 38, 58, 0.95); border: 1px solid var(--aws-orange); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-weight: 900; font-size: 0.9rem; color: var(--aws-orange);">
+                    GA
+                </div>
+                <div>
+                    <div style="font-weight: 800; font-size: 0.9rem; color: var(--text-primary);">Navigation Menu</div>
+                    <div style="font-size: 0.7rem; color: var(--aws-orange); font-family: var(--font-mono);">Gopinath A &bull; v2026</div>
+                </div>
+            </div>
+            <button onclick="closeMobileNav()" class="mobile-drawer-close-btn" aria-label="Close navigation menu">✕</button>
+        </div>
+
+        <!-- Quick Action Bar in Drawer -->
+        <div class="mobile-drawer-actions">
+            <button onclick="closeMobileNav(); toggleCommandPalette();" class="mobile-quick-btn">
+                <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                <span>Cmd+K</span>
+            </button>
+            <button onclick="closeMobileNav(); openResumeModal();" class="mobile-quick-btn" style="border-color: rgba(255,153,0,0.4); color: var(--aws-orange);">
+                <span>📄 Resume</span>
+            </button>
+        </div>
+
+        <!-- Navigation List -->
+        <nav class="mobile-drawer-nav" role="navigation">
+            <div class="mobile-nav-group-title">CORE BLUEPRINTS</div>
+            <a href="#hero" class="mobile-nav-link" onclick="closeMobileNav()">
+                <span class="mobile-nav-icon">⚡</span>
+                <div>
+                    <span class="mobile-nav-title">Developer Terminal</span>
+                    <span class="mobile-nav-sub">Interactive cloud CLI</span>
+                </div>
+            </a>
+            <a href="#architecture" class="mobile-nav-link" onclick="closeMobileNav()">
+                <span class="mobile-nav-icon">🏛️</span>
+                <div>
+                    <span class="mobile-nav-title">Architecture Blueprints</span>
+                    <span class="mobile-nav-sub">Dedicated 15-tab system explorer</span>
+                </div>
+            </a>
+            <a href="#akef" class="mobile-nav-link" onclick="closeMobileNav()">
+                <span class="mobile-nav-icon">🔬</span>
+                <div>
+                    <span class="mobile-nav-title">AKEF Compiler</span>
+                    <span class="mobile-nav-sub">Knowledge AST &amp; Scene IR</span>
+                </div>
+            </a>
+            <a href="#opensource" class="mobile-nav-link" onclick="closeMobileNav()">
+                <span class="mobile-nav-icon">📦</span>
+                <div>
+                    <span class="mobile-nav-title">Open Source Repos</span>
+                    <span class="mobile-nav-sub">24 public projects &amp; live sync</span>
+                </div>
+            </a>
+            <a href="#what-i-build" class="mobile-nav-link" onclick="closeMobileNav()">
+                <span class="mobile-nav-icon">🛠️</span>
+                <div>
+                    <span class="mobile-nav-title">Flagship Projects</span>
+                    <span class="mobile-nav-sub">Lakehouses, LangGraph &amp; PySpark</span>
+                </div>
+            </a>
+            <a href="#stack" class="mobile-nav-link" onclick="closeMobileNav()">
+                <span class="mobile-nav-icon">🧩</span>
+                <div>
+                    <span class="mobile-nav-title">Technology Stack</span>
+                    <span class="mobile-nav-sub">AWS, Databricks, Snowflake &amp; AI</span>
+                </div>
+            </a>
+
+            <div class="mobile-nav-group-title" style="margin-top: 14px;">ENTERPRISE &amp; RESOURCES</div>
+            <a href="#clients" class="mobile-nav-link" onclick="closeMobileNav()">
+                <span class="mobile-nav-icon">🎓</span>
+                <div>
+                    <span class="mobile-nav-title">Clients &amp; Corporate FDP</span>
+                    <span class="mobile-nav-sub">5,000+ engineers trained</span>
+                </div>
+            </a>
+            <a href="#services" class="mobile-nav-link" onclick="closeMobileNav()">
+                <span class="mobile-nav-icon">💼</span>
+                <div>
+                    <span class="mobile-nav-title">Consulting Services</span>
+                    <span class="mobile-nav-sub">Advisory, masterclasses &amp; audits</span>
+                </div>
+            </a>
+            <a href="#blog" class="mobile-nav-link" onclick="closeMobileNav()">
+                <span class="mobile-nav-icon">📰</span>
+                <div>
+                    <span class="mobile-nav-title">Technical Blog</span>
+                    <span class="mobile-nav-sub">RAG, Delta Lake &amp; Cloud Security</span>
+                </div>
+            </a>
+            <a href="#downloads" class="mobile-nav-link" onclick="closeMobileNav()">
+                <span class="mobile-nav-icon">📥</span>
+                <div>
+                    <span class="mobile-nav-title">Downloads Hub</span>
+                    <span class="mobile-nav-sub">Resumes, brochures &amp; whitepapers</span>
+                </div>
+            </a>
+            <a href="#contact" class="mobile-nav-link" onclick="closeMobileNav()" style="background: rgba(255,153,0,0.08); border-color: rgba(255,153,0,0.3);">
+                <span class="mobile-nav-icon" style="color: var(--aws-orange);">✉️</span>
+                <div>
+                    <span class="mobile-nav-title" style="color: var(--aws-orange); font-weight: 800;">Contact &amp; Hire</span>
+                    <span class="mobile-nav-sub">Direct enterprise advisory enquiry</span>
+                </div>
+            </a>
+        </nav>
+
+        <!-- Drawer Footer -->
+        <div class="mobile-drawer-footer">
+            <button onclick="closeMobileNav(); openAdminPortal();" class="mobile-admin-btn">
+                🔐 Admin Operations Portal
+            </button>
+        </div>
+    </aside>
+
     <main id="main-content" style="position: relative; z-index: 3;">
         <!-- 1. HERO SECTION WITH RICH STORYTELLING -->
-        <section class="hero-section section-hero" aria-labelledby="hero-heading">
+        <section id="hero" class="hero-section section-hero" aria-labelledby="hero-heading">
             <div class="container" style="position: relative; z-index: 2;">
                 <div class="status-pill">
                     <span class="status-dot" aria-hidden="true"></span>
@@ -188,7 +320,7 @@
                 </div>
 
                 <!-- Verified Impact Metrics -->
-                <div class="telemetry-grid reveal-on-scroll">
+                <div id="telemetry" class="telemetry-grid reveal-on-scroll">
                     <div class="telemetry-card spotlight-card">
                         <div class="telemetry-val" data-counter="5000">5,000+</div>
                         <div class="telemetry-label">Engineers &amp; Learners Trained</div>
