@@ -2,15 +2,28 @@
 backend/config.py - Environment & Application Configuration
 """
 import os
+import secrets
+import logging
 from pydantic import BaseModel
 from dotenv import load_dotenv
 
 load_dotenv()
+logger = logging.getLogger("uvicorn")
+
+def get_admin_api_key() -> str:
+    key = os.getenv("ADMIN_API_KEY")
+    if not key:
+        logger.warning(
+            "[SECURITY WARNING] ADMIN_API_KEY environment variable is not set. "
+            "Admin operations will be rejected until ADMIN_API_KEY is configured in your .env file."
+        )
+        return ""
+    return key
 
 class Settings(BaseModel):
     app_name: str = "Gopinath Portfolio API"
     app_version: str = "2.0.0"
-    admin_api_key: str = os.getenv("ADMIN_API_KEY", "gopinath_admin_secret_key_2026")
+    admin_api_key: str = get_admin_api_key()
     database_csv_path: str = os.getenv("DATABASE_CSV_PATH", os.path.join(os.path.dirname(__file__), "..", "database", "leads.csv"))
     sqlite_db_path: str = os.getenv("SQLITE_DB_PATH", os.path.join(os.path.dirname(__file__), "..", "database", "leads.db"))
     

@@ -4,4 +4,4 @@ Disallow: /admin
 Disallow: /api/admin
 Disallow: /database/
 
-Sitemap: http://gopinath-cloud-portfolio-724394717120.s3-website.ap-south-1.amazonaws.com/sitemap.xml
+Sitemap: https://gnath3144.github.io/AWS-Cloud_Portfolio/sitemap.xml

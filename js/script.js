@@ -828,22 +828,216 @@ Execution Time: 1385.20 ms  <-- [67% LATENCY REDUCTION / ZERO DISK SPILL]`
     }, 4000);
   }
 
+  /* --------------------------------------------------------
+     13. TOAST NOTIFICATIONS, MODALS & DOCUMENT VIEWER
+  -------------------------------------------------------- */
+  window.openAdminPortal = function() {
+    // Base-aware relative path navigation for GitHub Pages & root domains
+    const base = window.location.pathname.endsWith('/') 
+      ? window.location.pathname 
+      : window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1);
+    const adminUrl = new URL('admin/', window.location.origin + base).href;
+    window.open(adminUrl, '_blank');
+  };
+
+  const documentRegistry = {
+    'resume': {
+      title: 'Executive Resume & Technical Dossier',
+      subtitle: 'Senior Technical Consultant | Principal Data & AI Architect',
+      category: 'Executive Summary',
+      version: 'v2026.3',
+      pages: '4 Pages',
+      fileName: 'gopinath-resume.pdf',
+      summary: 'Comprehensive 10+ year technical dossier detailing enterprise cloud architectures, PySpark streaming benchmarks (120M+ daily events), AKEF framework specifications, and engineering leadership across 5,000+ engineers.',
+      highlights: [
+        'Multi-Cloud Data Platforms: AWS (S3, Glue, Athena, Redshift), Azure ADLS, Databricks Delta Lake, Snowflake.',
+        'Generative AI & LLM Systems: LangGraph Multi-Agent Workflows, AKEF Knowledge Compiler, Vector Search.',
+        'Enterprise Leadership: 5,000+ engineers trained across Infosys, Wipro, TCS, Accenture, Capgemini, Cognizant, and EY.',
+        'Performance Benchmarks: 67% reduction in PostgreSQL query latency via BRIN indexing & query plan refactoring.'
+      ],
+      serviceTopic: 'Data Engineering Consulting'
+    },
+    'databricks-brochure': {
+      title: 'Databricks & PySpark Corporate Masterclass Brochure',
+      subtitle: '4-Week Intensive Corporate Architecture & Implementation Program',
+      category: 'Training Brochure',
+      version: 'v2026.1',
+      pages: '8 Pages',
+      fileName: 'databricks-training-brochure.pdf',
+      summary: 'Curriculum blueprint for enterprise data teams transitioning to the Lakehouse paradigm. Covers Delta Lake ACID internals, Structured Streaming, Medallion Architecture, and Spark 3.5 Adaptive Query Execution (AQE).',
+      highlights: [
+        'Module 1: Decoupled Cloud Storage & Delta Lake Transaction Log Internals',
+        'Module 2: PySpark Structured Streaming & Auto-Loader Ingress Patterns',
+        'Module 3: Delta Live Tables (DLT), Unity Catalog, & Data Governance',
+        'Module 4: Performance Lab — Z-Ordering, Partition Pruning, & Query Tuning'
+      ],
+      serviceTopic: 'Corporate Training'
+    },
+    'course-catalog': {
+      title: 'Enterprise Course & Workshop Syllabus Catalog',
+      subtitle: 'Full 2026-2027 Professional Development & FDP Master Syllabus',
+      category: 'Course Catalog',
+      version: 'v2026.4',
+      pages: '12 Pages',
+      fileName: 'course-catalog.pdf',
+      summary: 'Complete catalog of customized technical workshops spanning Modern Cloud Lakehouses, Generative AI & RAG Engineering, Snowflake Dimensional Modeling, and Cloud Security Governance.',
+      highlights: [
+        'Track 1: Databricks & PySpark Enterprise Lakehouse Masterclass',
+        'Track 2: Generative AI, LangGraph Agents & AKEF Compiler Engineering',
+        'Track 3: Snowflake Cloud Data Warehouse & Power BI DAX Modeling',
+        'Track 4: Faculty Development Programs (FDP) & Hands-on Lab Bootcamps'
+      ],
+      serviceTopic: 'Faculty Development Program'
+    },
+    'akef-whitepaper': {
+      title: 'AKEF Architecture Specification & Compiler Whitepaper',
+      subtitle: 'Autonomous AI Knowledge Engineering Framework Specification',
+      category: 'Technical Whitepaper',
+      version: 'v0.9.4',
+      pages: '16 Pages',
+      fileName: 'akef-whitepaper.pdf',
+      summary: 'Formal architectural specification detailing the deterministic multi-pass knowledge compiler. Explains lexical tokenization, semantic graph AST verification, Scene IR generation, and zero-hallucination document synthesis.',
+      highlights: [
+        'Section 1: The Non-Determinism Problem in LLM Document Generation',
+        'Section 2: Multi-Pass Grammar Tokenization & KnowledgeSchemaContract v1.2',
+        'Section 3: Scene Intermediate Representation (Scene IR) Vector Graphs',
+        'Section 4: Production Artifact Compilers (PowerPoint PPTX, LaTeX/PDF, Interactive Labs)'
+      ],
+      serviceTopic: 'AI Consulting'
+    }
+  };
+
+  window.openDocumentModal = function(docKey) {
+    const doc = documentRegistry[docKey] || documentRegistry['resume'];
+    let modal = document.getElementById('document-viewer-modal');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.id = 'document-viewer-modal';
+      modal.className = 'site-modal-overlay';
+      modal.style.display = 'none';
+      modal.setAttribute('role', 'dialog');
+      modal.setAttribute('aria-modal', 'true');
+      modal.setAttribute('aria-label', doc.title);
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          window.closeDocumentModal();
+        }
+      });
+      document.body.appendChild(modal);
+    }
+
+    document.body.style.overflow = 'hidden';
+
+    const highlightsHtml = (doc.highlights || []).map(h => `<li style="margin-bottom: 8px; line-height: 1.6;">${h}</li>`).join('');
+
+    modal.innerHTML = `
+      <div class="site-modal-card" style="max-width: 720px; background: #0f172a; border: 1px solid var(--aws-orange); border-radius: 16px; box-shadow: 0 25px 60px rgba(0,0,0,0.85); color: #f8fafc; padding: 28px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 16px; border-bottom: 1px solid rgba(255,153,0,0.25); padding-bottom: 16px;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+              <span class="status-pill" style="font-size: 0.65rem; text-transform: uppercase;">${doc.category}</span>
+              <span style="font-size: 0.75rem; color: var(--text-secondary);">${doc.version} &bull; ${doc.pages}</span>
+            </div>
+            <h3 style="font-size: 1.3rem; font-weight: 800; color: #fff; margin: 0;">${doc.title}</h3>
+            <p style="font-size: 0.85rem; color: var(--aws-orange); font-weight: 600; margin: 4px 0 0 0;">${doc.subtitle}</p>
+          </div>
+          <button onclick="window.closeDocumentModal()" aria-label="Close Document Preview" class="btn-secondary" style="padding: 4px 10px; font-size: 1.2rem; cursor: pointer;">✕</button>
+        </div>
+
+        <div style="background: rgba(30, 41, 59, 0.6); border-left: 4px solid var(--aws-orange); padding: 14px 18px; border-radius: 8px; margin-bottom: 20px;">
+          <h4 style="font-size: 0.8rem; font-weight: 800; color: var(--aws-orange); text-transform: uppercase; margin-bottom: 4px;">Executive Overview</h4>
+          <p style="font-size: 0.9rem; color: #cbd5e1; margin: 0; line-height: 1.6;">${doc.summary}</p>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+          <h4 style="font-size: 0.9rem; font-weight: 800; color: var(--text-primary); margin-bottom: 10px;">Key Document Sections &amp; Specifications:</h4>
+          <ul style="padding-left: 20px; font-size: 0.875rem; color: var(--text-secondary);">
+            ${highlightsHtml}
+          </ul>
+        </div>
+
+        <div style="background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 8px; padding: 12px 16px; margin-bottom: 24px; display: flex; align-items: center; gap: 12px;">
+          <div style="color: #38bdf8; font-size: 1.2rem;">ℹ</div>
+          <div style="font-size: 0.825rem; color: #cbd5e1; line-height: 1.5;">
+            Official printable documentation is available below. Full enterprise PDF dossiers can also be dispatched directly to your organization.
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; border-top: 1px solid var(--border-subtle); padding-top: 16px;">
+          <button onclick="window.print()" class="btn-secondary" style="font-size: 0.8125rem; padding: 6px 14px;">
+            🖨️ Print / Save Document Summary
+          </button>
+          <div style="display: flex; gap: 8px;">
+            <button onclick="window.closeDocumentModal()" class="btn-secondary" style="font-size: 0.8125rem; padding: 6px 14px;">Close</button>
+            <a href="#contact" onclick="window.requestDossierViaContact('${doc.serviceTopic}', '${doc.title}')" class="btn-primary" style="font-size: 0.8125rem; padding: 6px 14px; text-decoration: none;">
+              Request Full Dossier →
+            </a>
+          </div>
+        </div>
+      </div>
+    `;
+
+    modal.style.display = 'flex';
+
+    if (window.trackAnalyticsEvent) {
+      window.trackAnalyticsEvent('view_document_summary', doc.title);
+    }
+  };
+
+  window.closeDocumentModal = function() {
+    const modal = document.getElementById('document-viewer-modal');
+    if (modal) modal.style.display = 'none';
+    document.body.style.overflow = '';
+  };
+
+  window.requestDossierViaContact = function(serviceVal, docTitle) {
+    window.closeDocumentModal();
+    window.closeResumeModal();
+    const serviceSelect = document.getElementById('contact-service');
+    if (serviceSelect && serviceVal) {
+      serviceSelect.value = serviceVal;
+    }
+    const subjectInput = document.getElementById('contact-subject');
+    if (subjectInput && docTitle) {
+      subjectInput.value = `Request for: ${docTitle}`;
+    }
+    jumpToSection('#contact');
+  };
+
   window.openResumeModal = function() {
     const modal = document.getElementById('resume-modal');
-    if (modal) modal.style.display = 'flex';
+    if (modal) {
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
   };
 
   window.closeResumeModal = function() {
     const modal = document.getElementById('resume-modal');
     if (modal) modal.style.display = 'none';
+    document.body.style.overflow = '';
   };
 
   window.closeModalOnBackdrop = function(e, modalId) {
     const modal = document.getElementById(modalId);
     if (e.target === modal) {
       modal.style.display = 'none';
+      document.body.style.overflow = '';
     }
   };
+
+  // Global Escape Key Listener for Modals
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      ['resume-modal', 'repo-arch-modal', 'cmd-palette-modal', 'document-viewer-modal', 'client-details-modal', 'univ-details-modal'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el && el.style.display !== 'none') {
+          el.style.display = 'none';
+          document.body.style.overflow = '';
+        }
+      });
+    }
+  });
 
   /* --------------------------------------------------------
      14. REPOSITORY ARCHITECTURE BLUEPRINT MODAL
