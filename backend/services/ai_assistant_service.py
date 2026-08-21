@@ -31,12 +31,12 @@ class AIAssistantService:
             {
                 "keywords": ["training", "bootcamp", "courses", "fdp", "faculty", "workshops", "programs"],
                 "response": "Available training programs include Corporate Databricks & PySpark Masterclasses, Executive GenAI & RAG Workshops, Faculty Development Programs (FDP), and Cybersecurity Awareness Certifications.",
-                "actions": [{"label": "View Services & Training", "target": "#services"}, {"label": "Download Course Catalog", "target": "/downloads/course-catalog.pdf", "external": True}]
+                "actions": [{"label": "View Services & Training", "target": "#services"}, {"label": "Request Training", "target": "#contact"}]
             },
             {
                 "keywords": ["resume", "download resume", "cv", "profile pdf"],
                 "response": "You can download Gopinath's official executive resume and enterprise portfolio directly from the downloads center.",
-                "actions": [{"label": "Download Executive Resume", "target": "/downloads/gopinath-resume.pdf", "external": True}]
+                "actions": [{"label": "Downloads Center", "target": "#downloads"}, {"label": "Request PDF Dossier", "target": "#contact"}]
             },
             {
                 "keywords": ["contact", "hire", "consulting", "email", "reach out", "book"],
