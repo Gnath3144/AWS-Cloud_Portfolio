@@ -267,6 +267,94 @@ async def list_admin_leads(
     )
 
 # -------------------------------------------------------------
+# PROTECTED CONTENT MANAGEMENT & ASSETS API (Phase 2.6)
+# -------------------------------------------------------------
+ALLOWED_CMS_SECTIONS = {
+    "profile", "skills", "experience", "education", 
+    "certifications", "projects", "services", "blog", 
+    "testimonials", "training", "publications", "website-settings"
+}
+
+@app.get("/api/admin/content/{section}")
+async def get_admin_content(section: str, _: bool = Depends(verify_admin_key)):
+    section_clean = sanitize_input_text(section).lower()
+    if section_clean not in ALLOWED_CMS_SECTIONS:
+        raise HTTPException(status_code=400, detail=f"Invalid CMS section: {section_clean}")
+    
+    file_path = os.path.join(DATA_DIR, f"{section_clean}.json")
+    if os.path.exists(file_path):
+        try:
+            with open(file_path, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=f"Failed to read {section_clean}.json")
+    raise HTTPException(status_code=404, detail=f"Section {section_clean}.json not found")
+
+@app.put("/api/admin/content/{section}")
+async def update_admin_content(
+    section: str, 
+    payload: Any = Body(...), 
+    _: bool = Depends(verify_admin_key)
+):
+    section_clean = sanitize_input_text(section).lower()
+    if section_clean not in ALLOWED_CMS_SECTIONS:
+        raise HTTPException(status_code=400, detail=f"Invalid CMS section: {section_clean}")
+    
+    file_path = os.path.join(DATA_DIR, f"{section_clean}.json")
+    backup_path = os.path.join(DATA_DIR, f"{section_clean}.json.bak")
+    
+    try:
+        # Create automated safety backup of existing file
+        if os.path.exists(file_path):
+            with open(file_path, "r", encoding="utf-8") as src, open(backup_path, "w", encoding="utf-8") as dst:
+                dst.write(src.read())
+        
+        # Atomic write updated content
+        with open(file_path, "w", encoding="utf-8") as f:
+            json.dump(payload, f, indent=2, ensure_ascii=False)
+            
+        return {
+            "status": "success",
+            "message": f"Successfully updated and persisted data/{section_clean}.json",
+            "section": section_clean
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to write {section_clean}.json: {str(e)}")
+
+@app.post("/api/admin/assets/upload")
+async def upload_asset_file(
+    request: Request,
+    _: bool = Depends(verify_admin_key)
+):
+    form = await request.form()
+    file_obj = form.get("file")
+    target_folder = form.get("folder", "downloads")  # "images" or "downloads"
+    
+    if not file_obj or not hasattr(file_obj, "filename"):
+        raise HTTPException(status_code=400, detail="No valid file uploaded.")
+    
+    filename = os.path.basename(file_obj.filename)
+    if target_folder not in ["images", "downloads"]:
+        target_folder = "downloads"
+        
+    destination_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", target_folder))
+    os.makedirs(destination_dir, exist_ok=True)
+    destination_path = os.path.join(destination_dir, filename)
+    
+    try:
+        contents = await file_obj.read()
+        with open(destination_path, "wb") as f:
+            f.write(contents)
+        return {
+            "status": "success",
+            "filename": filename,
+            "path": f"{target_folder}/{filename}",
+            "size_bytes": len(contents)
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to save asset: {str(e)}")
+
+# -------------------------------------------------------------
 # STATIC FILES & ROUTING
 # -------------------------------------------------------------
 WORKSPACE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))

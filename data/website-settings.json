@@ -1,0 +1,29 @@
+{
+  "siteName": "Gopinath A — Cloud & AI Architect Portfolio",
+  "domain": "https://gnath3144.github.io/AWS-Cloud_Portfolio/",
+  "author": "Gopinath A",
+  "activeResume": {
+    "id": "resume-primary",
+    "title": "Executive AI Architect & Data Engineering Dossier",
+    "subtitle": "Senior Technical Consultant | Principal Data & AI Architect",
+    "fileName": "gopinath-resume.pdf",
+    "version": "v2026.3",
+    "pages": "4 Pages"
+  },
+  "contact": {
+    "email": "gnath3144@gmail.com",
+    "github": "https://github.com/Gnath3144",
+    "linkedin": "https://www.linkedin.com/in/gopinath-a-cloud-ai/",
+    "location": "Bengaluru, India"
+  },
+  "features": {
+    "enableTerminal": true,
+    "enableTelemetry": true,
+    "enableArchitectureExplorer": true,
+    "enableAkefCompiler": true,
+    "enableAiAssistant": true,
+    "enableDownloads": true,
+    "enableServices": true,
+    "enableBlog": true
+  }
+}

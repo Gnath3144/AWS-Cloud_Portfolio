@@ -1,0 +1,48 @@
+{
+  "categories": [
+    {
+      "id": "cloud-infrastructure",
+      "name": "Cloud & Infrastructure",
+      "icon": "☁️",
+      "skills": [
+        { "name": "AWS (S3, Glue, Athena, Redshift, Lambda, IAM, VPC, CloudWatch)", "level": "Expert" },
+        { "name": "Terraform & Infrastructure as Code (IaC)", "level": "Advanced" },
+        { "name": "Docker & Container Workflows", "level": "Advanced" },
+        { "name": "Linux Server Administration & Bash Scripting", "level": "Advanced" }
+      ]
+    },
+    {
+      "id": "data-engineering",
+      "name": "Data Lakehouse & Streaming",
+      "icon": "⚡",
+      "skills": [
+        { "name": "Apache Spark & PySpark", "level": "Expert" },
+        { "name": "Databricks Delta Lake & Medallion Architecture", "level": "Expert" },
+        { "name": "Snowflake Data Cloud & Dimensional Modeling", "level": "Advanced" },
+        { "name": "SQL & Query Plan Optimization (PostgreSQL, Redshift)", "level": "Expert" },
+        { "name": "ETL / ELT Ingestion Pipelines & Data Quality", "level": "Expert" }
+      ]
+    },
+    {
+      "id": "ai-engineering",
+      "name": "AI Engineering & Frameworks",
+      "icon": "🧠",
+      "skills": [
+        { "name": "AKEF (AI Knowledge Engineering Framework)", "level": "Creator" },
+        { "name": "LangChain & LangGraph Multi-Agent Workflows", "level": "Advanced" },
+        { "name": "Vector Databases & Semantic Retrieval (RAG)", "level": "Advanced" },
+        { "name": "FastAPI & Python REST Microservices", "level": "Expert" }
+      ]
+    },
+    {
+      "id": "training-leadership",
+      "name": "Technical Pedagogy & Mentorship",
+      "icon": "🎓",
+      "skills": [
+        { "name": "Corporate Training & Faculty Development (FDP)", "level": "Lead" },
+        { "name": "Data Structures & Algorithms in Java / Python", "level": "Expert" },
+        { "name": "Cloud Architecture Curriculum Design", "level": "Lead" }
+      ]
+    }
+  ]
+}

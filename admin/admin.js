@@ -242,7 +242,26 @@ function populateProfileForm() {
     }
 }
 
-window.saveProfile = function() {
+async function syncContentToBackend(section, payload) {
+    try {
+        const res = await fetch(`/api/admin/content/${section}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Admin-Key': adminApiKey
+            },
+            body: JSON.stringify(payload)
+        });
+        if (res.ok) {
+            return true;
+        }
+    } catch (e) {
+        // Fallback for static hosting
+    }
+    return false;
+}
+
+window.saveProfile = async function() {
     studioProfile = {
         name: document.getElementById('prof-name').value,
         title: document.getElementById('prof-primary-role').value,
@@ -261,7 +280,14 @@ window.saveProfile = function() {
     };
 
     localStorage.setItem('gopinath_studio_profile', JSON.stringify(studioProfile));
-    alert('✓ Professional Profile saved successfully! (Synced to Local Storage)');
+    
+    // Sync to real backend if running
+    const backendSynced = await syncContentToBackend('profile', studioProfile);
+    if (backendSynced) {
+        alert('✓ Professional Profile saved directly to data/profile.json on disk!');
+    } else {
+        alert('✓ Professional Profile saved successfully! (Synced to Local Storage / Ready for JSON export)');
+    }
 };
 
 /* --------------------------------------------------------
@@ -456,9 +482,14 @@ function renderCertificationsStudio() {
     `).join('');
 }
 
-window.saveCertifications = function() {
+window.saveCertifications = async function() {
     localStorage.setItem('gopinath_studio_certs', JSON.stringify(studioCerts));
-    alert('✓ Certifications updated successfully!');
+    const synced = await syncContentToBackend('certifications', studioCerts);
+    if (synced) {
+        alert('✓ Certifications saved directly to data/certifications.json on disk!');
+    } else {
+        alert('✓ Certifications updated successfully! (Synced to Local Storage)');
+    }
 };
 
 window.deleteCert = function(idx) {
@@ -493,9 +524,14 @@ function renderProjectsStudio() {
     `).join('');
 }
 
-window.saveProjects = function() {
+window.saveProjects = async function() {
     localStorage.setItem('gopinath_studio_projects', JSON.stringify(studioProjects));
-    alert('✓ Projects and Architectures saved successfully!');
+    const synced = await syncContentToBackend('projects', studioProjects);
+    if (synced) {
+        alert('✓ Projects saved directly to data/projects.json on disk!');
+    } else {
+        alert('✓ Projects and Architectures saved successfully! (Synced to Local Storage)');
+    }
 };
 
 /* --------------------------------------------------------
@@ -545,7 +581,7 @@ window.renderBlogLivePreview = function() {
     preview.innerHTML = `<p style="margin-bottom:12px; line-height:1.6;">${html}</p>`;
 };
 
-window.saveCurrentBlogPost = function() {
+window.saveCurrentBlogPost = async function() {
     const selector = document.getElementById('blog-select-post');
     if (!selector || !studioBlog) return;
     const idx = parseInt(selector.value);
@@ -561,7 +597,12 @@ window.saveCurrentBlogPost = function() {
     };
 
     localStorage.setItem('gopinath_studio_blog', JSON.stringify(studioBlog));
-    alert('✓ Blog post saved successfully!');
+    const synced = await syncContentToBackend('blog', studioBlog);
+    if (synced) {
+        alert('✓ Blog post saved directly to data/blog.json on disk!');
+    } else {
+        alert('✓ Blog post saved successfully! (Synced to Local Storage)');
+    }
 };
 
 /* --------------------------------------------------------
