@@ -949,8 +949,9 @@ Execution Time: 1385.20 ms  <-- [67% LATENCY REDUCTION / ZERO DISK SPILL]`
       subtitle: 'Senior Technical Consultant | Principal Data & AI Architect',
       category: 'Executive Summary',
       version: 'v2026.3',
-      pages: '4 Pages',
-      fileName: 'gopinath-resume.pdf',
+      pages: 'Official PDF',
+      fileName: 'Gopinath Technical Profile 2026.pdf',
+      fileUrl: 'assets/resume/Gopinath%20Technical%20Profile%202026.pdf',
       summary: 'Comprehensive 10+ year technical dossier detailing enterprise cloud architectures, PySpark streaming benchmarks (120M+ daily events), AKEF framework specifications, and engineering leadership across 5,000+ engineers.',
       highlights: [
         'Multi-Cloud Data Platforms: AWS (S3, Glue, Athena, Redshift), Azure ADLS, Databricks Delta Lake, Snowflake.',
@@ -1086,13 +1087,18 @@ Execution Time: 1385.20 ms  <-- [67% LATENCY REDUCTION / ZERO DISK SPILL]`
         </div>
 
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; border-top: 1px solid var(--border-subtle); padding-top: 16px;">
-          <button onclick="window.print()" class="btn-secondary" style="font-size: 0.8125rem; padding: 6px 14px;">
-            🖨️ Print / Save Document Summary
-          </button>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <a href="${doc.fileUrl || 'assets/resume/Gopinath%20Technical%20Profile%202026.pdf'}" download="${doc.fileName || 'Gopinath Technical Profile 2026.pdf'}" class="btn-primary" style="font-size: 0.8125rem; padding: 6px 14px; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+              📥 Download Document (PDF)
+            </a>
+            <button onclick="window.print()" class="btn-secondary" style="font-size: 0.8125rem; padding: 6px 14px;">
+              🖨️ Print
+            </button>
+          </div>
           <div style="display: flex; gap: 8px;">
             <button onclick="window.closeDocumentModal()" class="btn-secondary" style="font-size: 0.8125rem; padding: 6px 14px;">Close</button>
-            <a href="#contact" onclick="window.requestDossierViaContact('${doc.serviceTopic}', '${doc.title}')" class="btn-primary" style="font-size: 0.8125rem; padding: 6px 14px; text-decoration: none;">
-              Request Full Dossier →
+            <a href="#contact" onclick="window.requestDossierViaContact('${doc.serviceTopic}', '${doc.title}')" class="btn-secondary" style="font-size: 0.8125rem; padding: 6px 14px; text-decoration: none;">
+              Request Custom Dossier →
             </a>
           </div>
         </div>

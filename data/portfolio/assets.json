@@ -11,10 +11,10 @@
   {
     "id": "asset-resume-pdf",
     "type": "document",
-    "path": "assets/resume/gopinath-resume.pdf",
-    "alt": "Gopinath A Executive Technical Resume PDF",
-    "description": "Official 4-page Executive Resume & Technical Dossier",
-    "tags": ["resume", "dossier", "cv"],
+    "path": "assets/resume/Gopinath Technical Profile 2026.pdf",
+    "alt": "Gopinath A Executive Technical Profile 2026 PDF",
+    "description": "Official Executive Resume & Technical Dossier PDF",
+    "tags": ["resume", "dossier", "cv", "pdf"],
     "published": true
   },
   {

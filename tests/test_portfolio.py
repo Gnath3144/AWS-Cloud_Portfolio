@@ -110,3 +110,13 @@ def test_html_essential_sections_and_seo():
     assert os.path.exists(os.path.join(ROOT_DIR, "images", "og-preview.png")), "OG preview image must exist"
     assert os.path.exists(os.path.join(ROOT_DIR, "CONTENT_DATABASE_GUIDE.md")), "CONTENT_DATABASE_GUIDE.md must exist"
     assert os.path.exists(os.path.join(ROOT_DIR, "CONTENT_MIGRATION_AUDIT.md")), "CONTENT_MIGRATION_AUDIT.md must exist"
+
+def test_resume_pdf_file_exists_and_linked():
+    resume_path = os.path.join(ASSETS_DIR, "resume", "Gopinath Technical Profile 2026.pdf")
+    assert os.path.exists(resume_path), "Gopinath Technical Profile 2026.pdf must exist in assets/resume/"
+    assert os.path.getsize(resume_path) > 100000, "Resume PDF should be a valid non-empty file"
+
+    index_path = os.path.join(ROOT_DIR, "index.html")
+    with open(index_path, "r", encoding="utf-8") as f:
+        html = f.read()
+    assert "Gopinath%20Technical%20Profile%202026.pdf" in html, "Resume PDF download link must be in index.html"

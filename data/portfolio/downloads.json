@@ -7,7 +7,7 @@
     "category": "Executive Summary",
     "version": "v2026.3",
     "pages": "4 Pages",
-    "file": "downloads/gopinath-resume.html",
+    "file": "assets/resume/Gopinath Technical Profile 2026.pdf",
     "summary": "Comprehensive 10+ year technical dossier detailing enterprise cloud architectures, PySpark streaming benchmarks (120M+ daily events), AKEF framework specifications, and engineering leadership across 5,000+ engineers.",
     "highlights": [
       "Multi-Cloud Data Platforms: AWS (S3, Glue, Athena, Redshift), Azure ADLS, Databricks Delta Lake, Snowflake.",
