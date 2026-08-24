@@ -275,26 +275,46 @@ document.addEventListener('DOMContentLoaded', () => {
   const cliCommands = {
     help: `Available commands:
   - whoami          : Display engineer dossier & current availability
+  - aws describe    : Output configured AWS Cloud infrastructure summary
+  - terraform plan  : Preview Infrastructure as Code deployment plan
+  - finops benchmark: View quantified AWS cloud cost & latency metrics
+  - lakehouse status: Query Delta Lake ACID stream ingestion health
   - akef --compile  : Trigger sample AKEF knowledge compiler pass
   - stack           : Print primary production technologies table
   - run benchmark   : Simulate 120M events/day streaming throughput test
-  - aws describe    : Output configured AWS Cloud infrastructure summary
   - theme           : Toggle dark/light editorial theme
   - contact         : Scroll to contact form
   - clear           : Clear terminal screen`,
     whoami: `Name        : Gopinath A
 Role        : Senior Technical Consultant | Principal Data & AI Architect | Corporate Trainer
-Experience  : 10+ Years (Started ~2015 at 24 Frames Digital)
+Experience  : 10+ Years (Multi-Cloud, Enterprise Data Lakehouses, Generative AI)
 Mentorship  : 5,000+ Engineers Trained (Infosys, Wipro, TCS, Accenture, Capgemini, EY, Deloitte)
 Core Focus  : AWS/Azure Lakehouses, PySpark Streaming, PostgreSQL Optimization, Generative AI & AKEF
 Status      : Available for Enterprise Consulting, Architecture Reviews & Corporate Bootcamps`,
     'aws describe': `[AWS-INFRASTRUCTURE-TELEMETRY]
 Region       : ap-south-1 (Mumbai) / us-east-1 (N. Virginia)
-Ingress      : AWS S3 (EventBridge Triggered Auto-Loader) & RTMP Live Streaming (OBS/CloudFront)
+Ingress      : AWS S3 (EventBridge Triggered Auto-Loader) & API Gateway Webhooks
 Processing   : AWS Glue 4.0 / Databricks Delta Lake / PySpark 3.5
 Orchestration: AWS Step Functions / Apache Airflow DAGs
 Warehousing  : Snowflake / AWS Redshift / PostgreSQL 15 (BRIN Optimized)
+Governance   : AWS Control Tower, IAM Identity Center, GuardDuty Zero-Trust
 AI & Vector  : LangChain, LangGraph, Vector DBs (FAISS/Chroma/Pinecone), AKEF Compiler`,
+    'terraform plan': `[TERRAFORM PLAN] Synthesizing AWS Multi-Account Landing Zone...
++ module.vpc.aws_vpc.primary (10.0.0.0/16 in 3 Availability Zones)
++ module.security.aws_guardduty_detector.primary (Status: Enabled)
++ module.lakehouse.aws_s3_bucket.raw_bronze (Intelligent-Tiering: Active)
++ module.lakehouse.aws_glue_catalog_database.silver (Schema: Enforced)
++ module.iam.aws_iam_role.zero_trust_execution (Least-Privilege: TLS-Only)
+Plan: 18 to add, 0 to change, 0 to destroy. (Deployment Ready)`,
+    'finops benchmark': `[FINOPS-COST-OPTIMIZATION-REPORT]
+1. AWS S3 Intelligent-Tiering: 42% storage cost reduction on archived raw Parquet.
+2. Graviton3 (ARM64) Compute : 28% price-to-performance efficiency over x86.
+3. PostgreSQL BRIN Indexing  : 67% reduction in query execution time & CPU load.
+4. Photon Spark Engine       : 35% faster ETL job completions with zero memory spill.`,
+    'lakehouse status': `[DELTA-LAKE-INGESTION-STATUS]
+Bronze (Raw Ingress) : 120M+ events/day | Partitioning: Date/Hour | Snappy Parquet
+Silver (Cleaned/DLT) : Deduplicated & Schema Validated | 0% Data Drift
+Gold (Curated Aggs)  : Z-Ordered on (customer_id, event_timestamp) | Latency: <1s`,
     'akef --compile': `[AKEF-COMPILER] v0.9.4 initializing...
 ✓ Tokenizing spec: delta_lake_acid.md
 ✓ Validating AST against KnowledgeSchemaContract v1.2
