@@ -3,157 +3,610 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lead Operations & Analytics | Gopinath Admin</title>
+    <title>Portfolio Content Studio &amp; Agent Explorer | Gopinath A</title>
     <link rel="stylesheet" href="admin.css">
 </head>
 <body>
-    <!-- Top Header -->
+    <!-- Studio Header -->
     <header class="admin-header">
         <div class="admin-title">
-            <a href="../index.html" style="text-decoration: none; color: var(--accent-cyan); font-family: var(--font-mono); font-weight: 700;">&larr; Portfolio</a>
+            <a href="../index.html" style="text-decoration: none; color: var(--aws-orange); font-family: var(--font-mono); font-weight: 800; display: flex; align-items: center; gap: 6px;">
+                <span>&larr; Public Portfolio</span>
+            </a>
             <span style="color: var(--border-active);">/</span>
-            <span>Enterprise Operations &amp; Intelligence</span>
+            <span style="font-weight: 800;">Content Studio &amp; Agent Explorer</span>
+            <span class="admin-badge">v2.5 Studio</span>
         </div>
-        <div style="display: flex; gap: 12px;">
-            <button onclick="exportCsv()" class="btn btn-secondary">
-                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-                <span>Export CSV</span>
+
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <div id="active-resume-pill" style="display: flex; align-items: center; gap: 6px; font-size: 0.75rem; background: rgba(255,153,0,0.1); border: 1px solid rgba(255,153,0,0.3); padding: 4px 10px; border-radius: var(--radius-full); color: var(--aws-orange); font-family: var(--font-mono);">
+                <span>⭐ Active Resume:</span>
+                <strong id="header-active-resume-label">Executive Dossier</strong>
+            </div>
+
+            <button onclick="switchStudioTab('publish')" class="btn btn-emerald btn-sm">
+                <span>🔄 Sync / Export</span>
             </button>
-            <button onclick="logout()" class="btn btn-secondary">Logout</button>
+
+            <button onclick="logout()" class="btn btn-secondary btn-sm">Logout</button>
         </div>
     </header>
 
-    <main class="admin-container">
-        <!-- Tab Controls -->
-        <div style="display: flex; gap: 12px; margin-bottom: 24px;">
-            <button id="tab-btn-leads" onclick="switchAdminTab('leads')" class="btn btn-primary" style="padding: 8px 16px;">Lead Inquiries</button>
-            <button id="tab-btn-analytics" onclick="switchAdminTab('analytics')" class="btn btn-secondary" style="padding: 8px 16px;">Visitor Analytics &amp; Intelligence</button>
-        </div>
+    <!-- Studio Main Layout -->
+    <div class="studio-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="studio-sidebar" role="navigation">
+            <div class="nav-category">OPERATIONS &amp; TRAFFIC</div>
+            <button id="nav-btn-leads" class="studio-nav-item active" onclick="switchStudioTab('leads')">
+                <span class="studio-nav-icon">📊</span>
+                <span>Lead Inquiries</span>
+            </button>
+            <button id="nav-btn-analytics" class="studio-nav-item" onclick="switchStudioTab('analytics')">
+                <span class="studio-nav-icon">📈</span>
+                <span>Visitor Intelligence</span>
+            </button>
 
-        <!-- TAB 1: LEADS INGESTION -->
-        <div id="tab-content-leads">
-            <!-- Stats Row -->
-            <div class="stats-grid">
-                <div class="stat-box">
-                    <div class="stat-val" id="stat-total">0</div>
-                    <div class="stat-label">Total Inquiries</div>
+            <div class="nav-category">PORTFOLIO CMS</div>
+            <button id="nav-btn-profile" class="studio-nav-item" onclick="switchStudioTab('profile')">
+                <span class="studio-nav-icon">👤</span>
+                <span>Profile &amp; Identity</span>
+            </button>
+            <button id="nav-btn-resumes" class="studio-nav-item" onclick="switchStudioTab('resumes')">
+                <span class="studio-nav-icon">📄</span>
+                <span>Resume Manager</span>
+            </button>
+            <button id="nav-btn-assets" class="studio-nav-item" onclick="switchStudioTab('assets')">
+                <span class="studio-nav-icon">🖼️</span>
+                <span>Asset Library</span>
+            </button>
+            <button id="nav-btn-skills" class="studio-nav-item" onclick="switchStudioTab('skills')">
+                <span class="studio-nav-icon">🏆</span>
+                <span>Certs &amp; Skills</span>
+            </button>
+            <button id="nav-btn-projects" class="studio-nav-item" onclick="switchStudioTab('projects')">
+                <span class="studio-nav-icon">🚀</span>
+                <span>Projects &amp; Arch</span>
+            </button>
+            <button id="nav-btn-blog" class="studio-nav-item" onclick="switchStudioTab('blog')">
+                <span class="studio-nav-icon">📰</span>
+                <span>Blog &amp; Articles</span>
+            </button>
+
+            <div class="nav-category">AI BRAIN &amp; SYNC</div>
+            <button id="nav-btn-agent" class="studio-nav-item" onclick="switchStudioTab('agent')" style="color: var(--accent-purple); font-weight: 700;">
+                <span class="studio-nav-icon">🧠</span>
+                <span>Agent Explorer</span>
+            </button>
+            <button id="nav-btn-publish" class="studio-nav-item" onclick="switchStudioTab('publish')" style="color: var(--accent-emerald);">
+                <span class="studio-nav-icon">🔄</span>
+                <span>Publish &amp; Export</span>
+            </button>
+        </aside>
+
+        <!-- Main Workspace Area -->
+        <main class="studio-workspace">
+            <!-- ══════════════════════════════════════════════════════════════
+                 TAB 1: LEAD INQUIRIES & OPERATIONS
+            ══════════════════════════════════════════════════════════════ -->
+            <div id="tab-content-leads" class="tab-pane active">
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div class="stat-val" id="stat-total">0</div>
+                        <div class="stat-label">Total Inquiries</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-val" style="color: var(--accent-cyan);" id="stat-new">0</div>
+                        <div class="stat-label">New Submissions</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-val" style="color: var(--accent-amber);" id="stat-contacted">0</div>
+                        <div class="stat-label">In Contact</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-val" style="color: var(--accent-emerald);" id="stat-closed">0</div>
+                        <div class="stat-label">Closed / Completed</div>
+                    </div>
                 </div>
-                <div class="stat-box">
-                    <div class="stat-val" style="color: var(--accent-cyan);" id="stat-new">0</div>
-                    <div class="stat-label">New Submissions</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-val" style="color: var(--accent-amber);" id="stat-contacted">0</div>
-                    <div class="stat-label">In Contact</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-val" style="color: var(--accent-emerald);" id="stat-closed">0</div>
-                    <div class="stat-label">Closed / Completed</div>
+
+                <div class="card-panel">
+                    <div class="panel-header">
+                        <div>
+                            <h3 class="panel-title"><span>📥</span> Enterprise Inquiries &amp; Consultations</h3>
+                            <p class="panel-subtitle">Manage client leads, corporate workshop requests, and direct advisories.</p>
+                        </div>
+                        <button onclick="exportCsv()" class="btn btn-secondary btn-sm">
+                            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                            <span>Export CSV</span>
+                        </button>
+                    </div>
+
+                    <div style="display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap;">
+                        <input type="text" id="search-box" class="form-input" placeholder="Search by name, email, company..." style="max-width: 320px;">
+                        <select id="status-filter" class="form-select" style="max-width: 160px;">
+                            <option value="all">All Statuses</option>
+                            <option value="New">New</option>
+                            <option value="Contacted">Contacted</option>
+                            <option value="Closed">Closed</option>
+                        </select>
+                        <select id="service-filter" class="form-select" style="max-width: 220px;">
+                            <option value="all">All Service Tracks</option>
+                            <option value="Data Engineering Consulting">Data Engineering</option>
+                            <option value="Corporate Training">Corporate Training</option>
+                            <option value="AI Consulting">AI Consulting</option>
+                            <option value="Portfolio/Project Discussion">Project Discussion</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <select id="sort-by" class="form-select" style="max-width: 160px;">
+                            <option value="timestamp">Sort by Date</option>
+                            <option value="name">Sort by Name</option>
+                            <option value="status">Sort by Status</option>
+                        </select>
+                    </div>
+
+                    <div class="table-wrapper">
+                        <table class="leads-table">
+                            <thead>
+                                <tr>
+                                    <th>Ref / Date</th>
+                                    <th>Contact Name</th>
+                                    <th>Email / Company</th>
+                                    <th>Service Requested</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="leads-tbody">
+                                <!-- Dynamically loaded -->
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
 
-            <!-- Filter & Search Controls -->
-            <div class="controls-bar">
-                <input type="text" id="search-box" class="search-input" placeholder="Search name, email, company...">
+            <!-- ══════════════════════════════════════════════════════════════
+                 TAB 2: VISITOR ANALYTICS & INTELLIGENCE
+            ══════════════════════════════════════════════════════════════ -->
+            <div id="tab-content-analytics" class="tab-pane">
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div class="stat-val" style="color: var(--aws-orange);" id="an-stat-total">0</div>
+                        <div class="stat-label">Total Visitors</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-val" style="color: var(--accent-cyan);" id="an-stat-unique">0</div>
+                        <div class="stat-label">Unique Visitors</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-val" style="color: var(--accent-emerald);" id="an-stat-daily">0</div>
+                        <div class="stat-label">Daily Visitors</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-val" style="color: var(--accent-purple);" id="an-stat-conversion">0%</div>
+                        <div class="stat-label">Conversion Rate</div>
+                    </div>
+                </div>
 
-                <div style="display: flex; flex-wrap: wrap; gap: 12px;">
-                    <select id="status-filter" class="filter-select">
-                        <option value="all">All Statuses</option>
-                        <option value="New">New</option>
-                        <option value="Contacted">Contacted</option>
-                        <option value="Closed">Closed</option>
-                    </select>
-
-                    <select id="service-filter" class="filter-select">
-                        <option value="all">All Services</option>
-                        <option value="Data Engineering Consulting">Data Engineering</option>
-                        <option value="Corporate Training">Corporate Training</option>
-                        <option value="AI Consulting">AI Consulting</option>
-                        <option value="Portfolio/Project Discussion">Project Discussion</option>
-                        <option value="Other">Other</option>
-                    </select>
-
-                    <select id="sort-by" class="filter-select">
-                        <option value="timestamp">Sort by Date</option>
-                        <option value="name">Sort by Name</option>
-                        <option value="status">Sort by Status</option>
-                    </select>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                    <div class="stat-box" style="text-align: left;">
+                        <h4 style="color: var(--accent-cyan); margin-bottom: 12px;">Top Traffic Referrers</h4>
+                        <ul id="an-list-referrers" style="list-style: none; padding: 0; font-size: 0.85rem; color: var(--text-secondary);"></ul>
+                    </div>
+                    <div class="stat-box" style="text-align: left;">
+                        <h4 style="color: var(--accent-cyan); margin-bottom: 12px;">Most Visited Sections</h4>
+                        <ul id="an-list-sections" style="list-style: none; padding: 0; font-size: 0.85rem; color: var(--text-secondary);"></ul>
+                    </div>
+                    <div class="stat-box" style="text-align: left;">
+                        <h4 style="color: var(--accent-cyan); margin-bottom: 12px;">Most Viewed Projects</h4>
+                        <ul id="an-list-projects" style="list-style: none; padding: 0; font-size: 0.85rem; color: var(--text-secondary);"></ul>
+                    </div>
+                    <div class="stat-box" style="text-align: left;">
+                        <h4 style="color: var(--accent-cyan); margin-bottom: 12px;">Resume Downloads</h4>
+                        <ul id="an-list-downloads" style="list-style: none; padding: 0; font-size: 0.85rem; color: var(--text-secondary);"></ul>
+                    </div>
                 </div>
             </div>
 
-            <!-- Leads Table -->
-            <div class="table-wrapper">
-                <table class="leads-table">
-                    <thead>
-                        <tr>
-                            <th>Reference / Date</th>
-                            <th>Contact Name</th>
-                            <th>Email / Preferred</th>
-                            <th>Service / Subject</th>
-                            <th>Status</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody id="leads-tbody">
-                        <!-- Populated via admin.js -->
-                    </tbody>
-                </table>
-            </div>
-        </div>
+            <!-- ══════════════════════════════════════════════════════════════
+                 TAB 3: PROFILE & IDENTITY MANAGER (2.5B)
+            ══════════════════════════════════════════════════════════════ -->
+            <div id="tab-content-profile" class="tab-pane">
+                <div class="card-panel">
+                    <div class="panel-header">
+                        <div>
+                            <h3 class="panel-title"><span>👤</span> Personal Profile &amp; Professional Identity</h3>
+                            <p class="panel-subtitle">Manage identity, roles, biography, contacts, and SEO schema markup.</p>
+                        </div>
+                        <button onclick="saveProfile()" class="btn btn-primary btn-sm">💾 Save Profile</button>
+                    </div>
 
-        <!-- TAB 2: VISITOR ANALYTICS & INTELLIGENCE (Component 13) -->
-        <div id="tab-content-analytics" style="display: none;">
-            <div class="stats-grid" style="margin-bottom: 24px;">
-                <div class="stat-box">
-                    <div class="stat-val" style="color: #FF9900;" id="an-stat-total">0</div>
-                    <div class="stat-label">Total Visitors</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-val" style="color: #38bdf8;" id="an-stat-unique">0</div>
-                    <div class="stat-label">Unique Visitors</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-val" style="color: #34d399;" id="an-stat-daily">0</div>
-                    <div class="stat-label">Daily Visitors</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-val" style="color: #a855f7;" id="an-stat-conversion">0%</div>
-                    <div class="stat-label">Contact Conversion Rate</div>
+                    <form id="profile-form" onsubmit="event.preventDefault(); saveProfile();">
+                        <div class="form-grid" style="margin-bottom: 20px;">
+                            <div class="form-group">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" id="prof-name" class="form-input" value="Gopinath A" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Primary Role</label>
+                                <input type="text" id="prof-primary-role" class="form-input" value="Enterprise AI Architect &amp; Principal Data Engineer">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Location</label>
+                                <input type="text" id="prof-location" class="form-input" value="Bengaluru, India">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Primary Contact Email</label>
+                                <input type="email" id="prof-email" class="form-input" value="gnath3144@gmail.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label class="form-label">Professional Bio &amp; Executive Summary</label>
+                            <textarea id="prof-bio" class="form-textarea" style="min-height: 110px;">Senior Technical Consultant, Principal Data Engineer, Generative AI Architect, and Creator of AKEF with 10+ years of experience across AWS Cloud, Databricks, Snowflake, PySpark, and enterprise bootcamps.</textarea>
+                        </div>
+
+                        <h4 style="font-size: 0.95rem; font-weight: 800; color: var(--aws-orange); margin-bottom: 14px; text-transform: uppercase;">Social &amp; Repository Links</h4>
+                        <div class="form-grid" style="margin-bottom: 20px;">
+                            <div class="form-group">
+                                <label class="form-label">GitHub URL</label>
+                                <input type="url" id="prof-github" class="form-input form-input-mono" value="https://github.com/Gnath3144">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">LinkedIn URL</label>
+                                <input type="url" id="prof-linkedin" class="form-input form-input-mono" value="https://www.linkedin.com/in/gopinath-a-cloud-ai/">
+                            </div>
+                        </div>
+
+                        <h4 style="font-size: 0.95rem; font-weight: 800; color: var(--aws-orange); margin-bottom: 14px; text-transform: uppercase;">Public Telemetry Counter Values</h4>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label">Years Experience</label>
+                                <input type="number" id="prof-stat-exp" class="form-input" value="10">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Engineers Trained</label>
+                                <input type="number" id="prof-stat-trained" class="form-input" value="5000">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Public Repositories</label>
+                                <input type="number" id="prof-stat-repos" class="form-input" value="24">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Daily Events Streamed (Millions)</label>
+                                <input type="number" id="prof-stat-events" class="form-input" value="120">
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-                <div class="stat-box" style="text-align: left;">
-                    <h4 style="color: var(--accent-cyan); margin-bottom: 12px;">Top Traffic Sources / Referrers</h4>
-                    <ul id="an-list-referrers" style="list-style: none; padding: 0; font-size: 0.85rem; color: var(--text-secondary);"></ul>
-                </div>
-                <div class="stat-box" style="text-align: left;">
-                    <h4 style="color: var(--accent-cyan); margin-bottom: 12px;">Most Visited Sections</h4>
-                    <ul id="an-list-sections" style="list-style: none; padding: 0; font-size: 0.85rem; color: var(--text-secondary);"></ul>
-                </div>
-                <div class="stat-box" style="text-align: left;">
-                    <h4 style="color: var(--accent-cyan); margin-bottom: 12px;">Most Viewed Projects</h4>
-                    <ul id="an-list-projects" style="list-style: none; padding: 0; font-size: 0.85rem; color: var(--text-secondary);"></ul>
-                </div>
-                <div class="stat-box" style="text-align: left;">
-                    <h4 style="color: var(--accent-cyan); margin-bottom: 12px;">Resume Downloads</h4>
-                    <ul id="an-list-downloads" style="list-style: none; padding: 0; font-size: 0.85rem; color: var(--text-secondary);"></ul>
+            <!-- ══════════════════════════════════════════════════════════════
+                 TAB 4: RESUME & DOSSIER MANAGER (2.5D)
+            ══════════════════════════════════════════════════════════════ -->
+            <div id="tab-content-resumes" class="tab-pane">
+                <div class="card-panel">
+                    <div class="panel-header">
+                        <div>
+                            <h3 class="panel-title"><span>📄</span> Multi-Version Resume &amp; Dossier Manager</h3>
+                            <p class="panel-subtitle">Maintain multiple tailored resume editions and select the active public download.</p>
+                        </div>
+                        <button onclick="openAddResumeModal()" class="btn btn-primary btn-sm">+ Add Resume Edition</button>
+                    </div>
+
+                    <div class="resume-grid" id="resume-cards-container">
+                        <!-- Populated dynamically via admin.js -->
+                    </div>
                 </div>
             </div>
-        </div>
-    </main>
+
+            <!-- ══════════════════════════════════════════════════════════════
+                 TAB 5: MEDIA & ASSET LIBRARY (2.5C)
+            ══════════════════════════════════════════════════════════════ -->
+            <div id="tab-content-assets" class="tab-pane">
+                <div class="card-panel">
+                    <div class="panel-header">
+                        <div>
+                            <h3 class="panel-title"><span>🖼️</span> Personal Media &amp; Asset Library</h3>
+                            <p class="panel-subtitle">Manage profile photos, architecture SVG diagrams, cert badges, and social previews.</p>
+                        </div>
+                        <div style="display: flex; gap: 8px;">
+                            <select id="asset-type-filter" class="form-select" style="max-width: 180px;" onchange="renderAssetLibrary()">
+                                <option value="all">All Asset Types</option>
+                                <option value="photo">Profile Photos</option>
+                                <option value="diagram">Architecture Diagrams</option>
+                                <option value="badge">Certification Badges</option>
+                                <option value="preview">Social Previews</option>
+                                <option value="document">Documents &amp; PDFs</option>
+                            </select>
+                            <button onclick="document.getElementById('asset-file-input').click()" class="btn btn-primary btn-sm">+ Upload Asset</button>
+                            <input type="file" id="asset-file-input" style="display: none;" onchange="handleAssetFileUpload(event)" accept="image/*,.pdf">
+                        </div>
+                    </div>
+
+                    <div class="dropzone" id="asset-dropzone" onclick="document.getElementById('asset-file-input').click()">
+                        <div style="font-size: 2.2rem; color: var(--aws-orange); margin-bottom: 8px;">📤</div>
+                        <h4 style="font-weight: 800; margin-bottom: 4px;">Drag and drop media assets here, or click to browse</h4>
+                        <p style="font-size: 0.8rem; color: var(--text-secondary);">Supports PNG, JPG, WebP, SVG, and PDF documents</p>
+                    </div>
+
+                    <div class="asset-grid" id="asset-cards-container">
+                        <!-- Populated dynamically via admin.js -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══════════════════════════════════════════════════════════════
+                 TAB 6: CERTIFICATIONS & SKILLS MATRIX
+            ══════════════════════════════════════════════════════════════ -->
+            <div id="tab-content-skills" class="tab-pane">
+                <div class="card-panel">
+                    <div class="panel-header">
+                        <div>
+                            <h3 class="panel-title"><span>🏆</span> Certifications &amp; Skills Studio</h3>
+                            <p class="panel-subtitle">Manage verified credentials, industry badges, and technical proficiency matrix.</p>
+                        </div>
+                        <button onclick="saveCertifications()" class="btn btn-primary btn-sm">💾 Save Credentials</button>
+                    </div>
+
+                    <div id="certs-list-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+                        <!-- Dynamically populated -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══════════════════════════════════════════════════════════════
+                 TAB 7: PROJECTS & ARCHITECTURE STUDIO
+            ══════════════════════════════════════════════════════════════ -->
+            <div id="tab-content-projects" class="tab-pane">
+                <div class="card-panel">
+                    <div class="panel-header">
+                        <div>
+                            <h3 class="panel-title"><span>🚀</span> Flagship Projects &amp; Architecture Blueprints</h3>
+                            <p class="panel-subtitle">Edit case study summaries, tech stacks, repository links, and impact metrics.</p>
+                        </div>
+                        <button onclick="saveProjects()" class="btn btn-primary btn-sm">💾 Save Projects</button>
+                    </div>
+
+                    <div id="projects-list-container" style="display: flex; flex-direction: column; gap: 20px;">
+                        <!-- Dynamically populated -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══════════════════════════════════════════════════════════════
+                 TAB 8: BLOG & PUBLICATIONS EDITOR
+            ══════════════════════════════════════════════════════════════ -->
+            <div id="tab-content-blog" class="tab-pane">
+                <div class="card-panel">
+                    <div class="panel-header">
+                        <div>
+                            <h3 class="panel-title"><span>📰</span> Technical Publications &amp; Blog Editor</h3>
+                            <p class="panel-subtitle">Write and edit technical papers with markdown syntax, tags, and live preview.</p>
+                        </div>
+                        <div style="display: flex; gap: 8px;">
+                            <select id="blog-select-post" class="form-select" style="max-width: 280px;" onchange="loadSelectedBlogPost()">
+                                <!-- Options populated dynamically -->
+                            </select>
+                            <button onclick="saveCurrentBlogPost()" class="btn btn-primary btn-sm">💾 Save Article</button>
+                        </div>
+                    </div>
+
+                    <div class="form-grid" style="margin-bottom: 16px;">
+                        <div class="form-group">
+                            <label class="form-label">Article Title</label>
+                            <input type="text" id="blog-edit-title" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Category</label>
+                            <input type="text" id="blog-edit-category" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Read Time</label>
+                            <input type="text" id="blog-edit-readtime" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Tags (comma-separated)</label>
+                            <input type="text" id="blog-edit-tags" class="form-input">
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 16px;">
+                        <label class="form-label">Executive Summary</label>
+                        <textarea id="blog-edit-summary" class="form-textarea" style="min-height: 70px;"></textarea>
+                    </div>
+
+                    <label class="form-label" style="margin-bottom: 6px; display: block;">Markdown Content &amp; Live Rendered Preview</label>
+                    <div class="split-editor">
+                        <textarea id="blog-edit-content" class="editor-pane" oninput="renderBlogLivePreview()" placeholder="Write markdown content here..."></textarea>
+                        <div id="blog-live-preview" class="preview-pane"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══════════════════════════════════════════════════════════════
+                 TAB 9: AGENT KNOWLEDGE EXPLORER (2.5E)
+            ══════════════════════════════════════════════════════════════ -->
+            <div id="tab-content-agent" class="tab-pane">
+                <div class="card-panel">
+                    <div class="panel-header">
+                        <div>
+                            <h3 class="panel-title" style="color: var(--accent-purple);"><span>🧠</span> Personal Knowledge Explorer &amp; AI Generator Sandbox</h3>
+                            <p class="panel-subtitle">Explore structured background knowledge fed to the portfolio AI agent, and generate customized content.</p>
+                        </div>
+                        <button onclick="exportAgentKnowledge()" class="btn btn-secondary btn-sm">Export Knowledge Graph</button>
+                    </div>
+
+                    <div class="agent-tree-grid">
+                        <div class="knowledge-domain-card">
+                            <h4 style="color: var(--aws-orange); margin-bottom: 12px; font-weight: 800;">📄 Career History &amp; Resumes</h4>
+                            <div class="knowledge-item">
+                                <span>10+ Years Cloud &amp; AI Architect</span>
+                                <span class="admin-badge">Source: Resume v2026</span>
+                            </div>
+                            <div class="knowledge-item">
+                                <span>PySpark 120M+ Event Streaming</span>
+                                <span class="admin-badge">Verified Metric</span>
+                            </div>
+                            <div class="knowledge-item">
+                                <span>PostgreSQL BRIN Latency Optimization</span>
+                                <span class="admin-badge">67% Saved</span>
+                            </div>
+                        </div>
+
+                        <div class="knowledge-domain-card">
+                            <h4 style="color: var(--accent-cyan); margin-bottom: 12px; font-weight: 800;">🎓 Pedagogy &amp; Corporate FDP</h4>
+                            <div class="knowledge-item">
+                                <span>5,000+ Corporate Engineers Trained</span>
+                                <span class="admin-badge">Infosys, TCS, Wipro</span>
+                            </div>
+                            <div class="knowledge-item">
+                                <span>Databricks &amp; PySpark Masterclass</span>
+                                <span class="admin-badge">4-Week Track</span>
+                            </div>
+                            <div class="knowledge-item">
+                                <span>GenAI &amp; RAG Executive Bootcamp</span>
+                                <span class="admin-badge">Enterprise Lab</span>
+                            </div>
+                        </div>
+
+                        <div class="knowledge-domain-card">
+                            <h4 style="color: var(--accent-emerald); margin-bottom: 12px; font-weight: 800;">🔬 AKEF Compiler Specifications</h4>
+                            <div class="knowledge-item">
+                                <span>Multi-Pass Grammar Lexer &amp; AST</span>
+                                <span class="admin-badge">Deterministic</span>
+                            </div>
+                            <div class="knowledge-item">
+                                <span>Scene IR Schema &amp; Knowledge Graph</span>
+                                <span class="admin-badge">Zero Hallucination</span>
+                            </div>
+                            <div class="knowledge-item">
+                                <span>PowerPoint (.pptx) &amp; LaTeX/PDF Compilers</span>
+                                <span class="admin-badge">Artifact Engine</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI Sandbox Generator -->
+                    <div class="ai-sandbox-box">
+                        <h4 style="color: #fff; font-size: 1.1rem; font-weight: 800; margin-bottom: 6px;">⚡ AI Context &amp; Proposal Generator</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 16px;">
+                            Prompt the AI Assistant with your verified background knowledge to generate role-tailored summaries, case studies, and workshop syllabi.
+                        </p>
+
+                        <div style="display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap;">
+                            <button onclick="setAgentPrompt('Generate an About Me section tailored for a Principal Cloud Architect position.')" class="btn btn-secondary btn-sm">Template: Cloud Architect Bio</button>
+                            <button onclick="setAgentPrompt('Draft a 4-week intensive Databricks Lakehouse corporate masterclass syllabus.')" class="btn btn-secondary btn-sm">Template: Databricks Syllabus</button>
+                            <button onclick="setAgentPrompt('Summarize AKEF compiler deterministic AST architecture for executive CTO review.')" class="btn btn-secondary btn-sm">Template: AKEF CTO Pitch</button>
+                        </div>
+
+                        <div style="display: flex; gap: 10px; margin-bottom: 16px;">
+                            <input type="text" id="agent-sandbox-input" class="form-input" placeholder="Ask AI to synthesize content from your knowledge base...">
+                            <button onclick="runAgentGenerator()" class="btn btn-primary" style="flex-shrink: 0;">Generate ✨</button>
+                        </div>
+
+                        <div id="agent-sandbox-output" style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: var(--radius-md); padding: 18px; font-size: 0.875rem; color: #cbd5e1; min-height: 80px; line-height: 1.6;">
+                            <em>Output generated by Agent Explorer will appear here...</em>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══════════════════════════════════════════════════════════════
+                 TAB 10: PUBLISH & SYNC STUDIO (2.5F)
+            ══════════════════════════════════════════════════════════════ -->
+            <div id="tab-content-publish" class="tab-pane">
+                <div class="card-panel">
+                    <div class="panel-header">
+                        <div>
+                            <h3 class="panel-title" style="color: var(--accent-emerald);"><span>🔄</span> Publish, Export &amp; GitHub Sync Studio</h3>
+                            <p class="panel-subtitle">Review modified drafts, export structured JSON files, or deploy to GitHub Pages.</p>
+                        </div>
+                        <button onclick="downloadAllJsonBundle()" class="btn btn-primary btn-sm">📦 Download All JSON Files (.zip)</button>
+                    </div>
+
+                    <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: var(--radius-lg); padding: 18px; margin-bottom: 24px;">
+                        <h4 style="color: var(--accent-emerald); font-weight: 800; font-size: 0.95rem; margin-bottom: 6px;">Publishing Workflow &amp; Persistence</h4>
+                        <p style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.6;">
+                            All profile edits, active resume selections, new blog posts, and asset links are saved immediately to your browser's local storage and reflected in live previews. To update the public GitHub repository, download the updated JSON bundle and commit it to your <code>main</code> branch.
+                        </p>
+                    </div>
+
+                    <h4 style="font-size: 0.95rem; font-weight: 800; color: var(--text-primary); margin-bottom: 14px;">Modified Content Status:</h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 24px;">
+                        <div class="stat-box">
+                            <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary);">profile.json</div>
+                            <div style="font-size: 0.95rem; font-weight: 800; color: var(--accent-emerald); margin-top: 4px;" id="sync-status-profile">✓ Synced to Local Storage</div>
+                            <button onclick="downloadIndividualJson('profile')" class="btn btn-secondary btn-sm" style="margin-top: 10px; width: 100%;">Download profile.json</button>
+                        </div>
+                        <div class="stat-box">
+                            <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary);">blog.json</div>
+                            <div style="font-size: 0.95rem; font-weight: 800; color: var(--accent-emerald); margin-top: 4px;" id="sync-status-blog">✓ Synced to Local Storage</div>
+                            <button onclick="downloadIndividualJson('blog')" class="btn btn-secondary btn-sm" style="margin-top: 10px; width: 100%;">Download blog.json</button>
+                        </div>
+                        <div class="stat-box">
+                            <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary);">certifications.json</div>
+                            <div style="font-size: 0.95rem; font-weight: 800; color: var(--accent-emerald); margin-top: 4px;" id="sync-status-certs">✓ Synced to Local Storage</div>
+                            <button onclick="downloadIndividualJson('certifications')" class="btn btn-secondary btn-sm" style="margin-top: 10px; width: 100%;">Download certifications.json</button>
+                        </div>
+                        <div class="stat-box">
+                            <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary);">projects.json</div>
+                            <div style="font-size: 0.95rem; font-weight: 800; color: var(--accent-emerald); margin-top: 4px;" id="sync-status-projects">✓ Synced to Local Storage</div>
+                            <button onclick="downloadIndividualJson('projects')" class="btn btn-secondary btn-sm" style="margin-top: 10px; width: 100%;">Download projects.json</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
 
     <!-- Auth Key Modal -->
     <div id="auth-modal" class="modal-overlay" style="display: none;">
         <div class="modal-card">
-            <h3 style="margin-bottom: 12px;">Admin Authentication</h3>
+            <h3 style="margin-bottom: 10px; font-weight: 800;">Content Studio Authentication</h3>
             <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 16px;">
-                Please enter your Admin API key to access operations and lead data.
+                Enter your Admin API Key to access the portfolio content management system.
             </p>
-            <input type="password" id="admin-key-input" class="search-input" placeholder="Admin Secret API Key..." style="width: 100%; margin-bottom: 16px;">
+            <input type="password" id="admin-key-input" class="form-input" placeholder="Admin Secret API Key..." style="margin-bottom: 16px;">
             <div style="display: flex; justify-content: flex-end; gap: 8px;">
-                <button onclick="authenticateAdmin()" class="btn btn-primary">Authenticate</button>
+                <button onclick="handleAuthSubmit(event)" class="btn btn-primary">Authenticate</button>
             </div>
+        </div>
+    </div>
+
+    <!-- Add Resume Edition Modal -->
+    <div id="add-resume-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-card" style="max-width: 580px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                <h3 style="font-weight: 800;">Add Tailored Resume Edition</h3>
+                <button onclick="closeAddResumeModal()" class="btn btn-secondary btn-sm">✕</button>
+            </div>
+            <form onsubmit="event.preventDefault(); submitNewResume();">
+                <div class="form-group" style="margin-bottom: 12px;">
+                    <label class="form-label">Resume Title / Edition Name</label>
+                    <input type="text" id="new-resume-title" class="form-input" placeholder="e.g. AWS Cloud Solutions Architect Resume" required>
+                </div>
+                <div class="form-group" style="margin-bottom: 12px;">
+                    <label class="form-label">Subtitle / Focus</label>
+                    <input type="text" id="new-resume-subtitle" class="form-input" placeholder="e.g. Enterprise Multi-Cloud Governance & Security" required>
+                </div>
+                <div class="form-grid" style="margin-bottom: 12px;">
+                    <div class="form-group">
+                        <label class="form-label">Category</label>
+                        <input type="text" id="new-resume-category" class="form-input" value="Cloud Architecture">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Page Count</label>
+                        <input type="text" id="new-resume-pages" class="form-input" value="3 Pages">
+                    </div>
+                </div>
+                <div class="form-group" style="margin-bottom: 16px;">
+                    <label class="form-label">Target File Name</label>
+                    <input type="text" id="new-resume-file" class="form-input form-input-mono" value="gopinath-cloud-architect-resume.pdf" required>
+                </div>
+                <div style="display: flex; justify-content: flex-end; gap: 8px;">
+                    <button type="button" onclick="closeAddResumeModal()" class="btn btn-secondary">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Edition</button>
+                </div>
+            </form>
         </div>
     </div>
 

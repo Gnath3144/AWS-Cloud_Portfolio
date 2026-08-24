@@ -1000,7 +1000,26 @@ Execution Time: 1385.20 ms  <-- [67% LATENCY REDUCTION / ZERO DISK SPILL]`
   };
 
   window.openDocumentModal = function(docKey) {
-    const doc = documentRegistry[docKey] || documentRegistry['resume'];
+    let doc = documentRegistry[docKey] || documentRegistry['resume'];
+    
+    // Dynamic sync with Content Studio's active resume selection
+    if (docKey === 'resume') {
+      try {
+        const savedActive = localStorage.getItem('gopinath_active_resume');
+        if (savedActive) {
+          const activeObj = JSON.parse(savedActive);
+          doc = {
+            ...doc,
+            title: activeObj.title || doc.title,
+            subtitle: activeObj.subtitle || doc.subtitle,
+            version: activeObj.version || doc.version,
+            pages: activeObj.pages || doc.pages,
+            fileName: activeObj.fileName || doc.fileName
+          };
+        }
+      } catch (e) {}
+    }
+
     let modal = document.getElementById('document-viewer-modal');
     if (!modal) {
       modal = document.createElement('div');
