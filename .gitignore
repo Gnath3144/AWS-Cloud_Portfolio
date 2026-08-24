@@ -20,7 +20,8 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Testing
+# Testing & Backups
 .pytest_cache/
 .coverage
 htmlcov/
+*.bak
