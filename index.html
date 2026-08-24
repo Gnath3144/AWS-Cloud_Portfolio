@@ -24,28 +24,46 @@
     <meta name="twitter:description" content="Senior Technical Consultant, Principal Data Engineer &amp; Creator of AKEF. AWS, Databricks, Snowflake, LangGraph.">
     <meta name="twitter:image" content="https://gnath3144.github.io/AWS-Cloud_Portfolio/images/og-preview.png">
 
-    <!-- JSON-LD Structured Data -->
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- JSON-LD Structured Data Graph (SEO) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Gopinath A",
-      "jobTitle": "Enterprise AI Architect & Principal Data Engineering Consultant",
-      "description": "Senior Technical Consultant, Principal Data Engineer, Generative AI Architect, and Creator of AKEF with 10+ years of experience across AWS Cloud, Databricks, Snowflake, and mentoring 5,000+ engineers.",
-      "url": "https://gnath3144.github.io/AWS-Cloud_Portfolio/",
-      "sameAs": [
-        "https://github.com/Gnath3144"
-      ],
-      "knowsAbout": [
-        "AWS Cloud Architecture",
-        "Databricks Delta Lake",
-        "Snowflake Data Cloud",
-        "Apache Spark & PySpark",
-        "LangGraph & LangChain",
-        "AI Knowledge Engineering Framework (AKEF)",
-        "PostgreSQL Query Optimization",
-        "dbt Core",
-        "Distributed Systems"
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://gnath3144.github.io/AWS-Cloud_Portfolio/#person",
+          "name": "Gopinath A",
+          "jobTitle": "Enterprise AI Architect & Principal Data Engineering Consultant",
+          "description": "Senior Technical Consultant, Principal Data Engineer, Generative AI Architect, and Creator of AKEF with 10+ years of experience across AWS Cloud, Databricks, Snowflake, and mentoring 5,000+ engineers.",
+          "url": "https://gnath3144.github.io/AWS-Cloud_Portfolio/",
+          "sameAs": [
+            "https://github.com/Gnath3144",
+            "https://www.linkedin.com/in/gopinath-a-cloud-ai/"
+          ],
+          "knowsAbout": [
+            "AWS Cloud Architecture",
+            "Databricks Delta Lake",
+            "Snowflake Data Cloud",
+            "Apache Spark & PySpark",
+            "LangGraph & LangChain",
+            "AI Knowledge Engineering Framework (AKEF)",
+            "PostgreSQL Query Optimization",
+            "Terraform & Infrastructure as Code",
+            "dbt Core",
+            "Zero-Trust Cloud Security"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://gnath3144.github.io/AWS-Cloud_Portfolio/#website",
+          "url": "https://gnath3144.github.io/AWS-Cloud_Portfolio/",
+          "name": "Gopinath A — Cloud & AI Architect Portfolio",
+          "publisher": { "@id": "https://gnath3144.github.io/AWS-Cloud_Portfolio/#person" }
+        }
       ]
     }
     </script>
@@ -314,7 +332,7 @@
                         </div>
                         <div class="terminal-input-line">
                             <span class="terminal-prompt">&gt;</span>
-                            <input type="text" id="terminal-cli-input" class="terminal-input" placeholder="Type a command (e.g. whoami, aws describe, akef --compile, stack)..." autocomplete="off">
+                            <input type="text" id="terminal-cli-input" class="terminal-input" placeholder="Type a command (e.g. whoami, aws describe, akef --compile, stack)..." autocomplete="off" aria-label="Developer Terminal Command Input">
                         </div>
                     </div>
                 </div>
