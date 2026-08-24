@@ -1,0 +1,41 @@
+[
+  {
+    "id": "srv-001",
+    "title": "Enterprise Cloud & Lakehouse Architecture",
+    "slug": "lakehouse-architecture",
+    "summary": "Full-lifecycle architecture design, migration planning, and performance optimization for AWS, Azure, and Databricks platforms.",
+    "deliverables": [
+      "Well-Architected Lakehouse blueprint (Bronze/Silver/Gold)",
+      "FinOps & Cloud storage tiering roadmap (up to 40%+ cost reduction)",
+      "Infrastructure as Code (Terraform) automated deployment modules"
+    ],
+    "targetAudience": "Enterprise Engineering Leaders, CTOs, Chief Data Officers",
+    "published": true
+  },
+  {
+    "id": "srv-002",
+    "title": "Generative AI, Agents & Knowledge Compilers",
+    "slug": "ai-knowledge-compilers",
+    "summary": "Design and implementation of deterministic multi-agent workflows, vector search pipelines, and custom knowledge compilers.",
+    "deliverables": [
+      "Stateful LangGraph agent graph architecture",
+      "Deterministic Markdown-to-Asset compilation engine (AKEF style)",
+      "Enterprise LLM guardrails & latency-optimized vector retrieval"
+    ],
+    "targetAudience": "AI Product Teams, Research Groups, SaaS Founders",
+    "published": true
+  },
+  {
+    "id": "srv-003",
+    "title": "Corporate Upskilling & Faculty Development (FDP)",
+    "slug": "corporate-fdp-training",
+    "summary": "Deep, systems-level technical training cohorts delivered for tier-1 IT firms and premier academic engineering faculties.",
+    "deliverables": [
+      "Custom syllabus tailored to enterprise tech stack (AWS, Databricks, PySpark, GenAI)",
+      "Hands-on architectural lab simulations and project dossiers",
+      "Interactive code walkthroughs and real-time Q&A"
+    ],
+    "targetAudience": "L&D Heads, University Deans, Corporate Engineering Cohorts",
+    "published": true
+  }
+]

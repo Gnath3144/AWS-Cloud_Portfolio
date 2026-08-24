@@ -1973,30 +1973,6 @@ section, .content-section, [id] {
   flex-shrink: 0;
 }
 
-[data-theme="light"] .mobile-drawer-footer {
-  background: #f8fafc;
-  border-top: 1px solid var(--border-subtle);
-}
-
-.mobile-admin-btn {
-  width: 100%;
-  padding: 8px 14px;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  color: var(--text-secondary);
-  font-size: 0.8125rem;
-  font-weight: 700;
-  cursor: pointer;
-  text-align: center;
-  transition: all var(--transition-fast);
-}
-
-.mobile-admin-btn:hover {
-  color: var(--aws-orange);
-  border-color: var(--aws-orange);
-}
-
 /* Responsive Media Queries */
 @media (max-width: 1024px) {
   .desktop-only-nav {

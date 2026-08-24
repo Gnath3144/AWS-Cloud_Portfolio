@@ -1,0 +1,37 @@
+{
+  "id": "certifications-main",
+  "title": "Certifications & Industry Accreditations",
+  "certifications": [
+    {
+      "id": "cert-aws-sa",
+      "title": "AWS Certified Solutions Architect – Associate",
+      "issuer": "Amazon Web Services (AWS)",
+      "badge": "assets/certificates/aws-solutions-architect.png",
+      "issueDate": "2023",
+      "credentialUrl": "https://aws.amazon.com/certification/",
+      "skills": ["AWS Well-Architected", "Multi-Tier Cloud", "High Availability", "FinOps"],
+      "published": true
+    },
+    {
+      "id": "cert-databricks-de",
+      "title": "Databricks Certified Data Engineer Associate",
+      "issuer": "Databricks",
+      "badge": "assets/certificates/databricks-data-engineer.png",
+      "issueDate": "2023",
+      "credentialUrl": "https://www.databricks.com/learn/certification",
+      "skills": ["Delta Lake", "PySpark", "Unity Catalog", "Lakehouse Architecture"],
+      "published": true
+    },
+    {
+      "id": "cert-snowflake-pro",
+      "title": "Snowflake SnowPro Core Certified",
+      "issuer": "Snowflake",
+      "badge": "assets/certificates/snowflake-snowpro.png",
+      "issueDate": "2022",
+      "credentialUrl": "https://www.snowflake.com/en/resources/learn/certifications/",
+      "skills": ["Cloud Data Warehousing", "Virtual Warehouses", "Data Sharing", "RBAC"],
+      "published": true
+    }
+  ],
+  "published": true
+}

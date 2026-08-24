@@ -1,0 +1,60 @@
+[
+  {
+    "id": "exp-001",
+    "role": "Lead Technical Consultant & Principal AI Architect",
+    "organization": "Enterprise AI & Cloud Consulting",
+    "location": "Bengaluru, India",
+    "period": "2022 - Present",
+    "summary": "Directing multi-cloud data modernization initiatives, architecting Medallion Lakehouses, designing LangGraph agent ecosystems, and delivering executive corporate training.",
+    "highlights": [
+      "Designed and open-sourced AKEF (AI Knowledge Engineering Framework), achieving deterministic multi-modal generation of technical educational assets.",
+      "Delivered technical upskilling programs for 5,000+ engineers across Infosys, Wipro, TCS, Accenture, Capgemini, Cognizant, and EY.",
+      "Architected real-time lakehouses on AWS (S3, Glue, Athena) and Databricks Delta Lake handling over 100M+ daily events."
+    ],
+    "technologies": ["AWS", "Azure", "Databricks", "Delta Lake", "PySpark", "AKEF", "LangGraph", "Terraform"],
+    "published": true
+  },
+  {
+    "id": "exp-002",
+    "role": "Senior Software Development Engineer (Data Stack & Cloud)",
+    "organization": "Cloud Data Platforms",
+    "location": "Bengaluru, India",
+    "period": "2019 - 2022",
+    "summary": "Engineered distributed ETL pipelines, real-time analytics data warehouses, and microservices architecture on AWS.",
+    "highlights": [
+      "Engineered automated PySpark batch compaction jobs reducing S3 storage scan costs by 42%.",
+      "Migrated legacy monolithic data pipelines to serverless event-driven AWS Lambda, SQS, and PostgreSQL architectures.",
+      "Maintained 99.99% data pipeline availability across critical enterprise reporting workloads."
+    ],
+    "technologies": ["AWS S3", "AWS Lambda", "PySpark", "PostgreSQL", "Docker", "dbt", "Airflow"],
+    "published": true
+  },
+  {
+    "id": "exp-003",
+    "role": "Cloud Solutions & Infrastructure Specialist",
+    "organization": "Infrastructure Services",
+    "location": "India",
+    "period": "2017 - 2019",
+    "summary": "Implemented automated cloud migrations, Linux infrastructure automation, and enterprise security guardrails.",
+    "highlights": [
+      "Built automated Terraform and CloudFormation IaC templates for multi-region VPC topologies.",
+      "Implemented AWS IAM least-privilege boundary policies and GuardDuty security monitoring."
+    ],
+    "technologies": ["AWS IAM", "VPC", "Terraform", "Linux", "Bash", "Security Guardrails"],
+    "published": true
+  },
+  {
+    "id": "exp-004",
+    "role": "Media Streaming & Cloud Infrastructure Engineer",
+    "organization": "24 Frames Digital",
+    "location": "India",
+    "period": "2015 - 2017",
+    "summary": "Managed high-availability live media streaming infrastructure, CDN routing, and real-time transcode pipelines.",
+    "highlights": [
+      "Configured distributed RTMP/HLS streaming transcode clusters for live enterprise webcasts.",
+      "Optimized CDN caching policies and edge origin shields reducing rebuffering latency by 35%."
+    ],
+    "technologies": ["Live Streaming", "CDN", "AWS CloudFront", "Linux", "FFmpeg"],
+    "published": true
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "doc-resume-main",
+    "key": "resume",
+    "title": "Executive Resume & Technical Dossier",
+    "subtitle": "Senior Technical Consultant | Principal Data & AI Architect",
+    "category": "Executive Summary",
+    "version": "v2026.3",
+    "pages": "4 Pages",
+    "file": "downloads/gopinath-resume.html",
+    "summary": "Comprehensive 10+ year technical dossier detailing enterprise cloud architectures, PySpark streaming benchmarks (120M+ daily events), AKEF framework specifications, and engineering leadership across 5,000+ engineers.",
+    "highlights": [
+      "Multi-Cloud Data Platforms: AWS (S3, Glue, Athena, Redshift), Azure ADLS, Databricks Delta Lake, Snowflake.",
+      "Generative AI & LLMs: LangGraph Multi-Agent Workflows, Vector DB Retrieval (FAISS, Chroma), AKEF Knowledge Compiler.",
+      "Pedagogy & Leadership: Delivered FDPs and high-impact bootcamps for 5,000+ engineers across Infosys, Wipro, TCS, Accenture, Capgemini, Cognizant, and EY.",
+      "Certifications: AWS Solutions Architect, Databricks Data Engineer, Snowflake SnowPro Core."
+    ],
+    "published": true
+  },
+  {
+    "id": "doc-akef-spec",
+    "key": "akef",
+    "title": "AKEF Architectural Specification & Whitepaper",
+    "subtitle": "Deterministic Multi-Modal Knowledge Compiler Architecture",
+    "category": "Architecture Blueprint",
+    "version": "v1.4.2",
+    "pages": "12 Pages",
+    "file": "downloads/gopinath-resume.html",
+    "summary": "Technical blueprint detailing the AST-driven 4-pass compiler pipeline converting Markdown domain documents into verified PowerPoint slides, vector diagrams, and Scene IR graphs with 0% hallucination.",
+    "highlights": [
+      "Lexical Tokenizer & AST Grammar for Domain-Specific Technical Markdown.",
+      "Knowledge IR (K-IR) Semantic Invariant Checker & Entity Dependency Graph.",
+      "Scene IR Layout Engine: Bounding-box constraint solver for multi-resolution vector rendering.",
+      "Open-Source Implementation and Benchmark Suite."
+    ],
+    "published": true
+  },
+  {
+    "id": "doc-lakehouse-guide",
+    "key": "lakehouse",
+    "title": "AWS Serverless Medallion Lakehouse Playbook",
+    "subtitle": "S3 Bronze-to-Gold Data Governance & PySpark Performance Compaction",
+    "category": "Cloud Playbook",
+    "version": "v3.1",
+    "pages": "8 Pages",
+    "file": "downloads/gopinath-resume.html",
+    "summary": "Production engineering guide for implementing Medallion architectures on AWS S3, automating Snappy Parquet partition compaction, and optimizing Amazon Athena query scan costs.",
+    "highlights": [
+      "Partitioning strategy & lifecycle transition policies reducing S3 scan overhead by 42%.",
+      "PySpark structured streaming compaction jobs with zero data loss guarantees.",
+      "AWS Glue 4.0 Catalog integration with least-privilege IAM boundary enforcement.",
+      "Real-time CloudWatch telemetry & FinOps cost optimization benchmarks."
+    ],
+    "published": true
+  },
+  {
+    "id": "doc-fdp-brochure",
+    "key": "fdp",
+    "title": "Corporate Upskilling & FDP Curriculum Brochure",
+    "subtitle": "Industry-Aligned Cloud Engineering & Generative AI Syllabi",
+    "category": "Training Brochure",
+    "version": "v2026.1",
+    "pages": "6 Pages",
+    "file": "downloads/gopinath-resume.html",
+    "summary": "Curriculum overview and modular syllabus for 5-day corporate bootcamps, Faculty Development Programs (FDPs), and senior engineering upskilling cohorts.",
+    "highlights": [
+      "Track 1: AWS Data Engineering & Medallion Lakehouses (40 Hours).",
+      "Track 2: Stateful Multi-Agent AI & LangGraph Workflows (24 Hours).",
+      "Track 3: Databricks Delta Lake & Unity Catalog Governance (32 Hours).",
+      "Track 4: Linux Systems, Containerization & Infrastructure as Code (24 Hours)."
+    ],
+    "published": true
+  }
+]

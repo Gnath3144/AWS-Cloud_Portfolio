@@ -16,7 +16,6 @@ if __name__ == "__main__":
     print("[*] GOPINATH PORTFOLIO & LEAD ENGINE (FastAPI v2.0)")
     print("=" * 65)
     print("-> Portfolio Website: http://127.0.0.1:8000")
-    print("-> Admin Dashboard:   http://127.0.0.1:8000/admin")
     print("-> API Documentation: http://127.0.0.1:8000/api/docs")
     print("=" * 65)
     

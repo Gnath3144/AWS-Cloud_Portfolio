@@ -1,7 +1,7 @@
 # Gopinath A — Cloud & Enterprise AI Architect Portfolio
 
 [![Deploy to GitHub Pages](https://github.com/Gnath3144/AWS-Cloud_Portfolio/actions/workflows/pages.yml/badge.svg)](https://github.com/Gnath3144/AWS-Cloud_Portfolio/actions/workflows/pages.yml)
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.109.0-009688.svg?logo=fastapi)](https://fastapi.tiangolo.com)
+[![Run Portfolio Test Suite](https://github.com/Gnath3144/AWS-Cloud_Portfolio/actions/workflows/test.yml/badge.svg)](https://github.com/Gnath3144/AWS-Cloud_Portfolio/actions/workflows/test.yml)
 [![Python](https://img.shields.io/badge/Python-3.11%20%7C%203.12-blue.svg?logo=python)](https://python.org)
 [![AWS Architecture](https://img.shields.io/badge/AWS-Cloud%20Solutions%20Architect-FF9900.svg?logo=amazonaws)](https://aws.amazon.com)
 [![AKEF Framework](https://img.shields.io/badge/AKEF-AI%20Knowledge%20Compiler-8b5cf6.svg)](https://github.com/Gnath3144/AKEF)
@@ -10,37 +10,62 @@
 An enterprise-grade, high-performance Cloud & AI Architect portfolio showcasing multi-cloud lakehouse architectures, Infrastructure as Code (Terraform), deterministic knowledge compilers (AKEF), and 10+ years of technical consulting and pedagogy.
 
 🌐 **Live Production Portfolio**: [https://gnath3144.github.io/AWS-Cloud_Portfolio/](https://gnath3144.github.io/AWS-Cloud_Portfolio/)  
-🔐 **Content Studio & Agent Explorer**: [https://gnath3144.github.io/AWS-Cloud_Portfolio/admin/](https://gnath3144.github.io/AWS-Cloud_Portfolio/admin/)
+📖 **Content Maintenance Guide**: [`CONTENT_DATABASE_GUIDE.md`](CONTENT_DATABASE_GUIDE.md)  
+🔍 **Content Migration Audit**: [`CONTENT_MIGRATION_AUDIT.md`](CONTENT_MIGRATION_AUDIT.md)
 
 ---
 
-## 🏛️ Architecture Overview
+## 🏛️ Architecture: Zero-Server Content Database
+
+This portfolio runs 100% serverless on **GitHub Pages**. There is no admin portal, no database server, and no server maintenance required. You manage all portfolio content directly inside **VS Code** using clean JSON files:
 
 ```
-                      ┌──────────────────────────────────────────────┐
-                      │             data/*.json                      │
-                      │     Single Source of Truth (Master Data)     │
-                      └──────────────────────┬───────────────────────┘
-                                             │
-                      ┌──────────────────────┴───────────────────────┐
-                      ▼                                              ▼
-        ┌───────────────────────────┐                  ┌───────────────────────────┐
-        │  Public Portfolio Website │                  │   Admin Content Studio    │
-        │  • Hero Developer Terminal│                  │   • Identity & Profile CMS│
-        │  • 15-Tab Arch Explorer   │                  │   • Multi-Resume Manager  │
-        │  • AKEF Compiler Center   │                  │   • Personal Asset Library│
-        │  • Dynamic CMS Loader     │                  │   • Agent Knowledge Brain │
-        │  • Mobile Drawer & Nav    │                  │   • 1-Click JSON Exporter │
-        └─────────────┬─────────────┘                  └─────────────┬─────────────┘
-                      │                                              │
-                      │ 100% Free Static Ingress                     │ REST API Bridge
-                      ▼                                              ▼
-        ┌───────────────────────────┐                  ┌───────────────────────────┐
-        │       GitHub Pages        │                  │      FastAPI Backend      │
-        │    (Automated Actions)    │                  │   • SQLite / CSV Leadhub  │
-        │                           │                  │   • PUT /api/admin/content│
-        │                           │                  │   • POST /api/admin/upload│
-        └───────────────────────────┘                  └───────────────────────────┘
+YOU (in VS Code)
+      │
+      ▼ (Edit JSON & manage assets)
+data/portfolio/*.json  +  assets/*
+      │
+      ▼ (Git Commit & Push)
+GitHub Repository (main branch)
+      │
+      ▼ (Automated GitHub Actions CI/CD)
+GitHub Pages Live Website (Free Static Ingress)
+```
+
+### Core Principle: `NO DATA = NO INVENTION`
+If a field is empty or marked `"published": false`, the public website cleanly hides the optional component or renders a safe neutral fallback.
+
+---
+
+## 🗂️ Content Database Structure (`data/portfolio/`)
+
+```
+AWS-Cloud_Portfolio/
+│
+├── data/
+│   └── portfolio/
+│       ├── profile.json            ← Identity, titles, bio, location, verified counters
+│       ├── about.json              ← Career story, biography paragraphs, core pillars
+│       ├── contact.json            ← Email, phone, advisory types, response time
+│       ├── social.json             ← GitHub, LinkedIn, email links
+│       ├── skills.json             ← Categorized skills matrix (Cloud, Lakehouse, AI, Pedagogy)
+│       ├── experience.json         ← Professional career timeline & achievements
+│       ├── education.json          ← Academic degrees, institution & focus areas
+│       ├── projects.json           ← Flagship projects & architecture case studies
+│       ├── certifications.json     ← AWS, Databricks, Snowflake credentials
+│       ├── services.json           ← Corporate FDP, Lakehouse Consulting, AI Advisories
+│       ├── testimonials.json       ← Industry reviews & participant feedback
+│       ├── training.json           ← Corporate bootcamps & workshop syllabi
+│       ├── blog.json               ← Technical articles & markdown publications
+│       ├── architecture.json       ← 15-tab blueprints with Terraform & FinOps data
+│       ├── downloads.json          ← Whitepapers & downloadable dossier catalog
+│       ├── assets.json             ← Central media asset registry
+│       └── settings.json           ← Global site metadata & active resume pointer
+│
+├── assets/                         ← Structured asset folders (profile, projects, certificates, resume)
+├── js/
+│   └── data-service.js             ← Central resilient data service for public website
+└── index.html                      ← Public Data-Driven Portfolio
 ```
 
 ---
@@ -64,82 +89,23 @@ Type real cloud commands in the hero terminal to inspect live telemetry:
 - `lakehouse status` — Delta Lake stream ingestion health
 - `akef --compile` — Multi-pass knowledge compiler demonstration
 
-### 3. 👤 Content Studio & Agent Knowledge Explorer (`/admin/`)
-A dedicated portal to manage your professional identity, tailored resume catalog, media assets, and structured AI agent knowledge base:
-- **Profile & Identity Manager**: Update name, bio, social links, and telemetry counters.
-- **Multi-Version Resume Manager**: Select which resume edition is active on the public website.
-- **Media & Asset Library**: Drag-and-drop file upload with "Where Used" tracking.
-- **Agent Knowledge Explorer**: Prompt sandbox generating role-tailored summaries and workshop syllabi grounded in your background.
-
 ---
 
-## 🗂️ Single Source of Truth (`data/`)
+## 🚀 How to Update & Deploy
 
-All portfolio content is decoupled into clean JSON files:
-
-```
-AWS-Cloud_Portfolio/
-│
-├── data/
-│   ├── profile.json            ← Identity, titles, bio, location, verified counters
-│   ├── skills.json             ← Categorized skills matrix (Cloud, Lakehouse, AI, Pedagogy)
-│   ├── experience.json         ← Career history & technical consulting leadership
-│   ├── education.json          ← Academic background & degrees
-│   ├── certifications.json     ← AWS, Databricks, Snowflake credentials
-│   ├── projects.json           ← Flagship projects & architecture case studies
-│   ├── services.json           ← Corporate FDP, Lakehouse Consulting, AI Advisories
-│   ├── blog.json               ← Technical articles & markdown publications
-│   ├── testimonials.json       ← Industry reviews & participant feedback
-│   ├── website-settings.json   ← Global SEO, active resume pointer, feature toggles
-│   └── architecture_details.json ← 15-tab blueprints with Terraform & FinOps data
-│
-├── images/                     ← Profile photos, architecture diagrams, social previews
-├── downloads/                  ← Master resume PDFs and whitepapers
-├── admin/                      ← Admin Content Studio & Agent Explorer
-├── backend/                    ← FastAPI backend & SQLite lead repository
-└── index.html                  ← Public Data-Driven Portfolio
-```
-
----
-
-## 🚀 Deployment Options
-
-### Option A: 100% Free Static Hosting (GitHub Pages)
-
-This repository includes [`.github/workflows/pages.yml`](.github/workflows/pages.yml) which automatically deploys the entire website on every commit to `main`.
-
-1. Push your changes:
-   ```bash
-   git add .
-   git commit -m "Update portfolio content"
-   git push origin main
-   ```
-2. The GitHub Action automatically deploys to:  
-   `https://<your-username>.github.io/<repo-name>/`
-
----
-
-### Option B: Local Full-Stack Development (FastAPI + Python)
-
-To run the full stack with live API endpoints, SQLite lead ingestion, and real disk persistence:
+Whenever you edit files in `data/portfolio/` or add files to `assets/`:
 
 ```bash
-# 1. Install dependencies
-pip install -r requirements.txt
+# 1. Stage changes
+git add .
 
-# 2. Start the FastAPI development server
-python run_server.py
+# 2. Commit
+git commit -m "Update skills and add new project"
+
+# 3. Push to GitHub
+git push origin main
 ```
-Open [http://localhost:8000](http://localhost:8000) for the portfolio and [http://localhost:8000/admin](http://localhost:8000/admin) for the Content Studio.
-
----
-
-### Option C: Production Docker Deployment
-
-```bash
-# Build and start all services via Docker Compose
-docker compose up -d --build
-```
+GitHub Actions will automatically run the test suite and publish the updated site live.
 
 ---
 

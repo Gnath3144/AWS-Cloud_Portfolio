@@ -1,0 +1,44 @@
+[
+  {
+    "id": "trn-001",
+    "title": "AWS Cloud Solutions & Medallion Lakehouse Mastery",
+    "deliveryMode": "Live Hands-on Corporate Bootcamp",
+    "duration": "40 Hours (5-Day Intensive)",
+    "audience": "Senior Data Engineers, Cloud Architects, Backend Leads",
+    "topics": [
+      "AWS S3 Medallion Ingestion (Bronze/Silver/Gold)",
+      "PySpark Structured Streaming & Snappy Parquet Compaction",
+      "AWS Glue 4.0 Catalog & Partitioning Best Practices",
+      "Athena Performance Tuning & CloudWatch Alerting"
+    ],
+    "published": true
+  },
+  {
+    "id": "trn-002",
+    "title": "Generative AI, LangGraph Multi-Agent Systems & AKEF",
+    "deliveryMode": "Enterprise AI Workshop",
+    "duration": "24 Hours (3-Day Workshop)",
+    "audience": "AI Engineers, Full-Stack Architects, Research Fellows",
+    "topics": [
+      "Stateful Agent Graphs with LangGraph & SQLite Checkpoints",
+      "Vector DB Ingestion & Hybrid Search (FAISS, Chroma)",
+      "AKEF Deterministic Knowledge Compilation Pipeline",
+      "LLM Evaluation & Invariant Validation"
+    ],
+    "published": true
+  },
+  {
+    "id": "trn-003",
+    "title": "Databricks Delta Lake & Unity Catalog Governance",
+    "deliveryMode": "Corporate Upskilling Cohort",
+    "duration": "32 Hours (4-Day Intensive)",
+    "audience": "Data Platform Engineers, Enterprise DBA Leads",
+    "topics": [
+      "Delta Lake ACID Transaction Logs & Time Travel",
+      "Unity Catalog Centralized RBAC & Data Lineage",
+      "PySpark Cluster Optimization & Memory Tuning",
+      "Multi-Hop Lakehouse Orchestration"
+    ],
+    "published": true
+  }
+]

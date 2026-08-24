@@ -1,0 +1,32 @@
+[
+  {
+    "id": "test-001",
+    "name": "Senior Engineering Director",
+    "organization": "Tier-1 IT Global Consulting Firm",
+    "role": "Cloud Practice Head",
+    "quote": "Gopinath's deep systems mastery in AWS and Databricks transformed our team's architectural capability. His systems-first pedagogy bridges the gap between high-level theory and enterprise production realities.",
+    "program": "Enterprise Lakehouse & PySpark Optimization Cohort",
+    "rating": 5,
+    "published": true
+  },
+  {
+    "id": "test-002",
+    "name": "Head of Computer Science Department",
+    "organization": "Premier Engineering College",
+    "role": "Dean of Academics",
+    "quote": "The 5-day Faculty Development Program delivered by Gopinath was the most practical and rigorous cloud architecture training our faculty has ever experienced. The AKEF methodology makes complex systems intuitive.",
+    "program": "Faculty Development Program (Cloud Architecture & GenAI)",
+    "rating": 5,
+    "published": true
+  },
+  {
+    "id": "test-003",
+    "name": "Lead Solutions Architect",
+    "organization": "Enterprise Analytics Consultancy",
+    "role": "Principal Consultant",
+    "quote": "The FinOps recommendations and partition compaction strategies provided in Gopinath's advisory reduced our AWS Athena query scan costs by over 40% in less than three weeks.",
+    "program": "AWS S3 & Glue Medallion Architecture Advisory",
+    "rating": 5,
+    "published": true
+  }
+]

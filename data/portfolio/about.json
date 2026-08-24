@@ -1,0 +1,24 @@
+{
+  "id": "about-main",
+  "title": "Architectural Pedigree & Career Story",
+  "bioParagraphs": [
+    "I am a Senior Technical Consultant and Principal Data/AI Architect with over a decade of hands-on experience designing, benchmarking, and shipping enterprise-scale data platforms, distributed streaming architectures, and deterministic generative AI systems.",
+    "Creator of AKEF (AI Knowledge Engineering Framework) — an open-source, 4-pass deterministic compiler translating Markdown specifications into multi-modal educational assets, automated lecture slides, and rich architectural diagrams.",
+    "Over my career, I have trained and mentored 5,000+ software engineers, data architects, and cloud specialists across premier IT services firms and tier-one academic engineering colleges."
+  ],
+  "corePillars": [
+    {
+      "title": "Cloud Data Platforms & Lakehouses",
+      "description": "Architecting petabyte-scale Medallion architectures using AWS S3, AWS Glue, Delta Lake, Snowflake, and Apache Spark."
+    },
+    {
+      "title": "Deterministic Generative AI & Compilers",
+      "description": "Building stateful LangGraph agent pipelines, AST-driven deterministic knowledge engines, and vector retrieval systems."
+    },
+    {
+      "title": "Enterprise Pedagogy & Engineering Leadership",
+      "description": "Upskilling corporate engineering cohorts across Tier-1 organizations with deep, systems-level curriculum."
+    }
+  ],
+  "published": true
+}

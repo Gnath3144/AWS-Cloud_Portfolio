@@ -1,7 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /admin
-Disallow: /api/admin
 Disallow: /database/
 
 Sitemap: https://gnath3144.github.io/AWS-Cloud_Portfolio/sitemap.xml

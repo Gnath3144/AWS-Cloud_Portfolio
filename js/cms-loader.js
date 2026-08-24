@@ -20,12 +20,15 @@
 
     async function fetchCMS(section) {
         const mapped = fileMapping[section] || section;
+        if (window.PortfolioData && typeof window.PortfolioData.load === 'function') {
+            const data = await window.PortfolioData.load(mapped);
+            if (data) return data;
+        }
+
         const endpoints = [
-            `/api/cms/${mapped}`,
-            `http://127.0.0.1:8000/api/cms/${mapped}`,
+            `data/portfolio/${mapped}.json`,
             `data/${mapped}.json`,
-            `/data/${mapped}.json`,
-            `data-static/${mapped}.json`
+            `/api/cms/${mapped}`
         ];
 
         for (const url of endpoints) {

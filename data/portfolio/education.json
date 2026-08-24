@@ -1,0 +1,15 @@
+[
+  {
+    "id": "edu-001",
+    "degree": "Bachelor of Engineering (B.E.) in Computer Science & Engineering",
+    "institution": "Visvesvaraya Technological University (VTU)",
+    "location": "Karnataka, India",
+    "period": "2011 - 2015",
+    "focusAreas": [
+      "Distributed Systems & Computer Networks",
+      "Database Management Systems & Relational Theory",
+      "Algorithms, Data Structures & Compilers"
+    ],
+    "published": true
+  }
+]

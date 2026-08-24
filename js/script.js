@@ -943,15 +943,6 @@ Execution Time: 1385.20 ms  <-- [67% LATENCY REDUCTION / ZERO DISK SPILL]`
   /* --------------------------------------------------------
      13. TOAST NOTIFICATIONS, MODALS & DOCUMENT VIEWER
   -------------------------------------------------------- */
-  window.openAdminPortal = function() {
-    // Base-aware relative path navigation for GitHub Pages & root domains
-    const base = window.location.pathname.endsWith('/') 
-      ? window.location.pathname 
-      : window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1);
-    const adminUrl = new URL('admin/', window.location.origin + base).href;
-    window.open(adminUrl, '_blank');
-  };
-
   const documentRegistry = {
     'resume': {
       title: 'Executive Resume & Technical Dossier',

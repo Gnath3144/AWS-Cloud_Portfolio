@@ -1,0 +1,54 @@
+{
+  "id": "skills-matrix",
+  "title": "Skills Matrix & Core Competencies",
+  "categories": [
+    {
+      "id": "cloud-iac",
+      "name": "Cloud Architecture & Infrastructure as Code",
+      "icon": "cloud",
+      "skills": [
+        { "name": "AWS (S3, Glue, Athena, Redshift, Lambda, IAM, VPC)", "level": "Expert", "years": 10 },
+        { "name": "Terraform & Infrastructure as Code (IaC)", "level": "Advanced", "years": 7 },
+        { "name": "Azure (ADLS Gen2, Synapse, Databricks, Data Factory)", "level": "Advanced", "years": 6 },
+        { "name": "Docker & Containerized Microservices", "level": "Advanced", "years": 8 },
+        { "name": "Linux Server Administration & Bash Scripting", "level": "Advanced", "years": 10 }
+      ]
+    },
+    {
+      "id": "lakehouse-data",
+      "name": "Lakehouse, Big Data & Distributed Streaming",
+      "icon": "database",
+      "skills": [
+        { "name": "Apache Spark & PySpark Streaming", "level": "Expert", "years": 8 },
+        { "name": "Databricks Delta Lake & Unity Catalog", "level": "Expert", "years": 6 },
+        { "name": "Snowflake Data Cloud Architecture", "level": "Advanced", "years": 5 },
+        { "name": "dbt Core / dbt Cloud Transformation", "level": "Advanced", "years": 4 },
+        { "name": "PostgreSQL Performance Tuning & Indexing", "level": "Expert", "years": 9 }
+      ]
+    },
+    {
+      "id": "ai-compilers",
+      "name": "Generative AI, Agents & Knowledge Compilers",
+      "icon": "cpu",
+      "skills": [
+        { "name": "AKEF (AI Knowledge Engineering Framework)", "level": "Creator", "years": 3 },
+        { "name": "LangGraph & LangChain Multi-Agent Systems", "level": "Advanced", "years": 3 },
+        { "name": "Vector Databases (FAISS, Chroma, Pinecone)", "level": "Advanced", "years": 3 },
+        { "name": "FastAPI & High-Concurrency Python Backends", "level": "Expert", "years": 7 },
+        { "name": "AST Analysis & Deterministic Code Synthesis", "level": "Advanced", "years": 4 }
+      ]
+    },
+    {
+      "id": "pedagogy",
+      "name": "Corporate Training & Pedagogy Leadership",
+      "icon": "users",
+      "skills": [
+        { "name": "Corporate Upskilling (Infosys, TCS, Wipro, Accenture)", "level": "Master", "years": 8 },
+        { "name": "Faculty Development Programs (FDP)", "level": "Master", "years": 7 },
+        { "name": "Curriculum Engineering & Workshop Delivery", "level": "Master", "years": 8 },
+        { "name": "5,000+ Engineers Mentored", "level": "Milestone", "years": 8 }
+      ]
+    }
+  ],
+  "published": true
+}

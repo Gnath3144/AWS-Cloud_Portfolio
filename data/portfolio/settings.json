@@ -1,0 +1,24 @@
+{
+  "siteTitle": "Gopinath A | Senior Technical Consultant & Principal Data/AI Architect",
+  "siteDescription": "Portfolio of Gopinath A — Senior Technical Consultant, Principal Data/AI Architect, and Creator of AKEF with 10+ years architecting enterprise AWS lakehouses, PySpark streaming, and AI knowledge engines.",
+  "siteUrl": "https://gnath3144.github.io/AWS-Cloud_Portfolio/",
+  "author": "Gopinath A",
+  "defaultTheme": "dark",
+  "activeResumeAsset": "asset-resume-pdf",
+  "activeResumePath": "downloads/gopinath-resume.html",
+  "analyticsEnabled": true,
+  "features": {
+    "developerTerminal": true,
+    "architectureExplorer": true,
+    "akefCompiler": true,
+    "blogReaderModal": true,
+    "documentViewerModal": true,
+    "githubLiveSync": true,
+    "themeSwitcher": true
+  },
+  "contactSettings": {
+    "emailRecipient": "gnath3144@gmail.com",
+    "enableLocalStorageFallback": true,
+    "successToastMessage": "Thank you! Your enquiry has been received securely."
+  }
+}

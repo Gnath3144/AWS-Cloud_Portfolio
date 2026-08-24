@@ -1,0 +1,15 @@
+{
+  "id": "contact-main",
+  "email": "gnath3144@gmail.com",
+  "phone": "+91 90000 00000",
+  "location": "Bengaluru, Karnataka, India",
+  "preferredContactMethod": "email",
+  "responseTime": "Within 24 business hours",
+  "advisoryTypes": [
+    "Enterprise Lakehouse Architecture Review",
+    "Generative AI & Knowledge Compiler Consultation",
+    "Corporate Engineering Training & FDP Programs",
+    "Fractional Chief Architect Advisory"
+  ],
+  "published": true
+}

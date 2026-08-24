@@ -1,0 +1,27 @@
+{
+  "id": "social-main",
+  "links": [
+    {
+      "platform": "GitHub",
+      "username": "Gnath3144",
+      "url": "https://github.com/Gnath3144",
+      "icon": "github",
+      "featured": true
+    },
+    {
+      "platform": "LinkedIn",
+      "username": "Gopinath A",
+      "url": "https://www.linkedin.com/in/gopinath-a",
+      "icon": "linkedin",
+      "featured": true
+    },
+    {
+      "platform": "Email",
+      "username": "gnath3144@gmail.com",
+      "url": "mailto:gnath3144@gmail.com",
+      "icon": "mail",
+      "featured": true
+    }
+  ],
+  "published": true
+}

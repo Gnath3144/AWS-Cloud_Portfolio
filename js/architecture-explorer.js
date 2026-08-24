@@ -11,12 +11,19 @@
     async function loadArchitectureDetails() {
         if (currentArchData) return currentArchData;
 
+        if (window.PortfolioData && typeof window.PortfolioData.load === 'function') {
+            const data = await window.PortfolioData.load('architecture');
+            if (data && Object.keys(data).length > 0) {
+                currentArchData = data;
+                return currentArchData;
+            }
+        }
+
         const candidateEndpoints = [
-            '/api/cms/architecture_details',
-            'http://127.0.0.1:8000/api/cms/architecture_details',
+            'data/portfolio/architecture.json',
             'data/architecture_details.json',
-            '/data/architecture_details.json',
-            '../data/architecture_details.json'
+            '/api/cms/architecture_details',
+            '/data/architecture_details.json'
         ];
 
         for (const url of candidateEndpoints) {

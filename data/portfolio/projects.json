@@ -1,0 +1,72 @@
+[
+  {
+    "id": "project-001",
+    "title": "AKEF (AI Knowledge Engineering Framework)",
+    "slug": "akef-compiler",
+    "summary": "Deterministic 4-pass knowledge compiler translating Markdown specifications into multi-modal educational assets, automated lecture slides, and rich diagrams.",
+    "description": "An open-source compiler architecture featuring AST parsing, lexical & semantic invariant validation, Knowledge Intermediate Representation (K-IR), and Scene IR multi-target rendering engine.",
+    "technologies": ["Python", "AST Compiler", "Knowledge Graphs", "Generative AI", "Markdown AST"],
+    "githubUrl": "https://github.com/Gnath3144/AKEF",
+    "liveUrl": "https://github.com/Gnath3144/AKEF",
+    "image": "assets/projects/akef-framework.png",
+    "featured": true,
+    "metrics": {
+      "passes": 4,
+      "compilationTime": "< 250ms",
+      "determinismRate": "100%"
+    },
+    "published": true
+  },
+  {
+    "id": "project-002",
+    "title": "AWS Serverless Medallion Lakehouse",
+    "slug": "aws-lakehouse",
+    "summary": "High-throughput real-time lakehouse on AWS with automated Bronze-to-Gold data quality validation and Snappy Parquet partition compaction.",
+    "description": "Architected petabyte-scale storage on AWS S3 with AWS Glue ETL jobs, Snappy Parquet columnar compaction, and serverless querying via AWS Athena and Amazon Redshift Spectrum.",
+    "technologies": ["AWS S3", "AWS Glue 4.0", "Amazon Athena", "Amazon Redshift", "Terraform", "PySpark"],
+    "githubUrl": "https://github.com/Gnath3144",
+    "liveUrl": "",
+    "image": "assets/projects/aws-lakehouse.png",
+    "featured": true,
+    "metrics": {
+      "storageSavings": "42%",
+      "dailyRecords": "120M+",
+      "querySpeedup": "3.8x"
+    },
+    "published": true
+  },
+  {
+    "id": "project-003",
+    "title": "Databricks Delta Lakehouse & Unity Catalog",
+    "slug": "databricks-lakehouse",
+    "summary": "Enterprise unified data governance architecture with Delta Lake ACID transaction logs, PySpark streaming, and fine-grained RBAC.",
+    "description": "Implemented zero-copy data clones, time-travel auditing, and automated vacuuming schedules with centralized row/column level security policies via Unity Catalog.",
+    "technologies": ["Databricks", "Delta Lake", "Unity Catalog", "PySpark", "Python", "SQL"],
+    "githubUrl": "https://github.com/Gnath3144",
+    "liveUrl": "",
+    "image": "assets/projects/databricks-lakehouse.png",
+    "featured": true,
+    "metrics": {
+      "writeLatency": "45ms",
+      "concurrency": "150+ queries/s"
+    },
+    "published": true
+  },
+  {
+    "id": "project-004",
+    "title": "Stateful Multi-Agent Workflow Engine",
+    "slug": "langgraph-agents",
+    "summary": "Distributed multi-agent pipeline using LangGraph, Vector DB retrieval, and SQLite state checkpointers for deterministic code synthesis.",
+    "description": "Coordinates parallel research agents, architectural validation agents, and test synthesis agents with structured output enforcement and automatic retry loops.",
+    "technologies": ["LangGraph", "LangChain", "FastAPI", "Vector DB", "ChromaDB", "Python"],
+    "githubUrl": "https://github.com/Gnath3144",
+    "liveUrl": "",
+    "image": "assets/projects/langgraph-agents.png",
+    "featured": true,
+    "metrics": {
+      "parallelExecution": "4 agents",
+      "hallucinationReduction": "89%"
+    },
+    "published": true
+  }
+]

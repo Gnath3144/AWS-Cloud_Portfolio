@@ -1,0 +1,56 @@
+[
+  {
+    "id": "asset-profile-photo",
+    "type": "image",
+    "path": "assets/profile/profile-photo.jpg",
+    "alt": "Gopinath A - Senior Technical Consultant and Principal Data & AI Architect",
+    "description": "Primary high-resolution professional portrait of Gopinath A",
+    "tags": ["profile", "portrait", "hero"],
+    "published": true
+  },
+  {
+    "id": "asset-resume-pdf",
+    "type": "document",
+    "path": "assets/resume/gopinath-resume.pdf",
+    "alt": "Gopinath A Executive Technical Resume PDF",
+    "description": "Official 4-page Executive Resume & Technical Dossier",
+    "tags": ["resume", "dossier", "cv"],
+    "published": true
+  },
+  {
+    "id": "asset-og-preview",
+    "type": "image",
+    "path": "images/og-preview.png",
+    "alt": "Gopinath A Cloud & AI Architect OpenGraph Card",
+    "description": "High-res social share card for LinkedIn, Twitter, and messaging previews",
+    "tags": ["social", "opengraph", "preview"],
+    "published": true
+  },
+  {
+    "id": "asset-cert-aws",
+    "type": "certificate",
+    "path": "assets/certificates/aws-solutions-architect.png",
+    "alt": "AWS Certified Solutions Architect Associate Badge",
+    "description": "Amazon Web Services accreditation verification asset",
+    "tags": ["certification", "aws", "badge"],
+    "published": true
+  },
+  {
+    "id": "asset-cert-databricks",
+    "type": "certificate",
+    "path": "assets/certificates/databricks-data-engineer.png",
+    "alt": "Databricks Certified Data Engineer Associate Badge",
+    "description": "Databricks Delta Lake and PySpark accreditation asset",
+    "tags": ["certification", "databricks", "badge"],
+    "published": true
+  },
+  {
+    "id": "asset-cert-snowflake",
+    "type": "certificate",
+    "path": "assets/certificates/snowflake-snowpro.png",
+    "alt": "Snowflake SnowPro Core Certified Badge",
+    "description": "Snowflake Data Cloud certification asset",
+    "tags": ["certification", "snowflake", "badge"],
+    "published": true
+  }
+]
